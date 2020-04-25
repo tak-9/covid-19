@@ -1,5 +1,5 @@
 import React from 'react';
-import Topbar from './Topbar';
+import Topbar from '../common/Topbar';
 import Overview from './Overview';
 import LineChartByCountry from './LineChartByCountry'
 import PieChart from './PieChart';

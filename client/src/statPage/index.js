@@ -1,6 +1,6 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar';
-import Content from '../components/Content';
+import Sidebar from '../common/Sidebar';
+import Content from './Content';
 
 function StatPage() {
 

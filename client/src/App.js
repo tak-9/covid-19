@@ -1,5 +1,5 @@
 import React from 'react';
-import StatPage from './pages/StatPage';
+import StatPage from './statPage';
 import useScript from './customhook/useScript';
 
 function App() {
