@@ -6,10 +6,10 @@ function Overview() {
 
   return (
     <div>
-      <div class="row">
+      <div className="row">
         <h1 class="h3 mb-2 ml-3 text-gray-800">Worldwide</h1>
       </div>
-      <div class="row">
+      <div className="row">
         <Card
             case = {"Confirmed"}
             number = {"2,628,929"}

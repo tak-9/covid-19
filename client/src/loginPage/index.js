@@ -1,13 +1,13 @@
 import React from 'react';
 import Sidebar from '../common/Sidebar';
-import Content from './Content';
+import Login from './Login';
 
-function StatPage() {
+function LoginPage() {
   return (
     <div id="wrapper">
         <Sidebar />
-        <Content />
+        <Login />
     </div>
   );
 }
-export default StatPage;
+export default LoginPage;

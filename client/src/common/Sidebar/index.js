@@ -8,7 +8,7 @@ function Sidebar() {
         {/* Sidebar */}
         <ul className="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
         {/* Sidebar - Brand */}
-        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
             <div className="sidebar-brand-icon rotate-n-15">
             <i className="fas fa-virus" />
             </div>
@@ -19,21 +19,33 @@ function Sidebar() {
 
         {/* Nav Item - Dashboard */}
         <Item   className = {"active"}
-                href = {"index.html"} 
+                href = {"/"} 
                 icon = {<i className="fas fa-fw fa-tachometer-alt" />}
                 text = {<span>Dashboard</span>}/>
 
         {/* Nav Item - Charts */}
         <Item   active = {''}
-                href = {"index.html"} 
+                href = {"/"} 
                 icon = {<i className="fas fa-fw fa-chart-area" />}
                 text = {<span>Charts</span>}/>
 
         {/* Nav Item - Tables */}
         <Item   active = {''}
-                href = {"tables.html"} 
+                href = {"/"} 
                 icon = {<i className="fas fa-fw fa-table" />}
                 text = {<span>Tables</span>}/>
+
+        {/* Nav Item - Tables */}
+        <Item   active = {''}
+                href = {"/login"} 
+                icon = {<i className="fas fa-fw fa-table" />}
+                text = {<span>Login</span>}/>
+
+        {/* Nav Item - Tables */}
+        <Item   active = {''}
+                href = {"/tracker"} 
+                icon = {<i className="fas fa-fw fa-table" />}
+                text = {<span>Stay Home Tracker</span>}/>
 
         {/* Divider */}
         <hr className="sidebar-divider d-none d-md-block" />
