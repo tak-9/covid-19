@@ -8,7 +8,7 @@ function Content() {
   return (
     <div id="content-wrapper" className="d-flex flex-column">
       <div id="content">
-          <Topbar />
+          <Topbar title="Dashboard" />
           
           {/* Begin Page Content */}
           <div className="container-fluid">

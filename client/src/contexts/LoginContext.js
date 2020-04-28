@@ -9,6 +9,7 @@ class LoginContextProvider extends Component {
       }
 
     setLogInState = (loggedIn, username) => {
+        console.log("*****setLoginState****" , loggedIn, username);
         this.setState({
             loggedIn: loggedIn,
             username: username

@@ -66,7 +66,7 @@ render() {
         return (
             <div id="content-wrapper" className="d-flex flex-column">
                 <div id="content">
-                <Topbar />
+                <Topbar title="Sign Up" />
 
                 <div className="SignupForm">
                     <h4>Sign up</h4>

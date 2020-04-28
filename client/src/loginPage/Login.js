@@ -72,7 +72,7 @@ class Login extends Component {
             return (
                 <div id="content-wrapper" className="d-flex flex-column">
                     <div id="content">
-                    <Topbar />
+                    <Topbar title="Login" />
                     <h4>Login</h4>
                         <form className="form-horizontal">
                             <div className="form-group">

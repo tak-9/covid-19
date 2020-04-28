@@ -5,11 +5,10 @@ import { LoginContext } from '../contexts/LoginContext';
 function TrackerContent() {
   let loginCtx = useContext(LoginContext);
   let { loggedIn, username } = loginCtx;
-  //console.log("****logIn**** loggedIn, username : ", loggedIn, username)
   return ( 
     <div id="content-wrapper" className="d-flex flex-column">
       <div id="content">
-          <Topbar />
+          <Topbar title="Stay Home Tracker"/>
           {loggedIn ? (
             <div>
               <h1>You are logged in as {username}. </h1>
