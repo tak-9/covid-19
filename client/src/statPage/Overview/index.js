@@ -7,7 +7,7 @@ function Overview() {
   return (
     <div>
       <div className="row">
-        <h1 class="h3 mb-2 ml-3 text-gray-800">Worldwide</h1>
+        <h1 className="h3 mb-2 ml-3 text-gray-800">Worldwide</h1>
       </div>
       <div className="row">
         <Card

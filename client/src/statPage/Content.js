@@ -6,12 +6,12 @@ import PieChart from './PieChart';
 
 function Content() {
   return (
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content-wrapper" className="d-flex flex-column">
       <div id="content">
           <Topbar />
           
           {/* Begin Page Content */}
-          <div class="container-fluid">
+          <div className="container-fluid">
             <Overview />
             <div className="row">
               <div className="col-xl-8 col-lg-7">

@@ -70,7 +70,7 @@ class Login extends Component {
             return <Redirect to={{ pathname: this.state.redirectTo }} />
         } else {
             return (
-                <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content-wrapper" className="d-flex flex-column">
                     <div id="content">
                     <Topbar />
                     <h4>Login</h4>

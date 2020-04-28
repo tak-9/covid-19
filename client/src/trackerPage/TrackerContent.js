@@ -7,7 +7,7 @@ function TrackerContent() {
   let { loggedIn, username } = loginCtx;
   //console.log("****logIn**** loggedIn, username : ", loggedIn, username)
   return ( 
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content-wrapper" className="d-flex flex-column">
       <div id="content">
           <Topbar />
           {loggedIn ? (
