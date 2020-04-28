@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Item from './Item';
 
 function Sidebar() {
@@ -8,12 +9,14 @@ function Sidebar() {
         {/* Sidebar */}
         <ul className="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
         {/* Sidebar - Brand */}
-        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-            <div className="sidebar-brand-icon rotate-n-15">
-            <i className="fas fa-virus" />
-            </div>
-            <div className="sidebar-brand-text mx-3">COVID-19 App</div>
-        </a>
+        
+        <Link className="sidebar-brand d-flex align-items-center justify-content-center">
+                <div className="sidebar-brand-icon rotate-n-15">
+                <i className="fas fa-virus" />
+                </div>
+                <div className="sidebar-brand-text mx-3">COVID-19 App</div>
+        </Link>
+        
         {/* Divider */}
         <hr className="sidebar-divider my-0" />
 
