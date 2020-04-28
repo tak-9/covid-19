@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Topbar from '../common/Topbar';
+import { LoginContext } from '../contexts/LoginContext';
 
 class Signup extends Component {
+    static contextType = LoginContext;
   
     constructor() {
 		super()
@@ -10,7 +13,6 @@ class Signup extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
-
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
@@ -22,6 +24,7 @@ class Signup extends Component {
 	}
 	handleSubmit(event) {
         const serverUrl = 'http://localhost:3001';
+        const { setLogInState } = this.context;
 
         console.log('sign-up handleSubmit, username: ')
 		console.log(this.state.username)
@@ -37,9 +40,14 @@ class Signup extends Component {
 				console.log("response",response)
 				if (typeof response.data.error === 'undefined') {
 					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirectTo: '/login'
-					})
+
+                    // User is automatically logged in after Sign up. 
+                    // Update React Context if Sign up is successful. 
+                    setLogInState(true, this.state.username);
+
+                    this.setState({ //redirect to login page
+						redirectTo: '/tracker'
+                    })
 				} else {
 					console.log('username already taken')
 				}
@@ -52,56 +60,59 @@ class Signup extends Component {
 
 
 render() {
-	return (
-        <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
-            <Topbar />
+    if (this.state.redirectTo) {
+        return <Redirect to={{ pathname: this.state.redirectTo }} />
+    } else {
+        return (
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                <Topbar />
 
-              <div className="SignupForm">
-                <h4>Sign up</h4>
-                <form className="form-horizontal">
-                    <div className="form-group">
-                        <div className="col-1 col-ml-auto">
-                            <label className="form-label" htmlFor="username">Username</label>
+                <div className="SignupForm">
+                    <h4>Sign up</h4>
+                    <form className="form-horizontal">
+                        <div className="form-group">
+                            <div className="col-1 col-ml-auto">
+                                <label className="form-label" htmlFor="username">Username</label>
+                            </div>
+                            <div className="col-3 col-mr-auto">
+                                <input className="form-input"
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    placeholder="Username"
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                         </div>
-                        <div className="col-3 col-mr-auto">
-                            <input className="form-input"
-                                type="text"
-                                id="username"
-                                name="username"
-                                placeholder="Username"
-                                value={this.state.username}
-                                onChange={this.handleChange}
-                            />
+                        <div className="form-group">
+                            <div className="col-1 col-ml-auto">
+                                <label className="form-label" htmlFor="password">Password: </label>
+                            </div>
+                            <div className="col-3 col-mr-auto">
+                                <input className="form-input"
+                                    placeholder="password"
+                                    type="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-1 col-ml-auto">
-                            <label className="form-label" htmlFor="password">Password: </label>
+                        <div className="form-group ">
+                            <div className="col-7"></div>
+                            <button
+                                className="btn btn-primary col-1 col-mr-auto"
+                                onClick={this.handleSubmit}
+                                type="submit"
+                            >Sign up</button>
                         </div>
-                        <div className="col-3 col-mr-auto">
-                            <input className="form-input"
-                                placeholder="password"
-                                type="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group ">
-                        <div className="col-7"></div>
-                        <button
-                            className="btn btn-primary col-1 col-mr-auto"
-                            onClick={this.handleSubmit}
-                            type="submit"
-                        >Sign up</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-	)
+	)} // end 'if'
 }
 }
 
