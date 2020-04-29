@@ -9,7 +9,7 @@ import LoginContextProvider  from './contexts/LoginContext';
 
 function App() {
   return (
-    <div>
+    <div id="page-top">
       <LoginContextProvider>
         <BrowserRouter>
           <Switch>
