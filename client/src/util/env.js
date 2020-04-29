@@ -1,8 +1,3 @@
-// serverUrl for development environment 
-var serverUrl =  "http://localhost:3001";
-// serverUrl for heroku
-if (process.env.NODE_ENV === "production") {
-    serverUrl =  "https://covid19-au.herokuapp.com/";
-} 
-
-export {serverUrl};
+// Ensure NODE_ENV="production" is set on Heroku server before using it.
+// If production is set, the app is running on, heroku. Else it's running on development environment.    
+export const serverUrl = (process.env.NODE_ENV === "production") ? "https://covid19-au.herokuapp.com" : "http://localhost:3001";
