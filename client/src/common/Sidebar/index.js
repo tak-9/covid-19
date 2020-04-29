@@ -10,7 +10,7 @@ function Sidebar() {
         <ul className="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
         {/* Sidebar - Brand */}
         
-        <Link className="sidebar-brand d-flex align-items-center justify-content-center">
+        <Link to="/" className="sidebar-brand d-flex align-items-center justify-content-center">
                 <div className="sidebar-brand-icon rotate-n-15">
                 <i className="fas fa-virus" />
                 </div>
