@@ -11,10 +11,10 @@ function User() {
 
     const[redirectUrl, setRedirectUrl] = useState('');
 
-    let logoutHandler = function(e) {
+    let redirectHandler = function(url) {
         console.log("logoutHandler"); 
         setLogInState(false, null);
-        setRedirectUrl("/");
+        setRedirectUrl(url);
     }
 
     let jsx;
@@ -28,13 +28,27 @@ function User() {
     } else if (username === null) {
         // User has not logged in
         jsx = (
-            <li className="nav-item">
+            <li className="nav-item dropdown no-arrow">
                 {/* Nav Item - User Information  */}
-                {/* data-toggle="dropdown" must be removed so that link works. */}
-                <Link className="nav-link" to="/login">
-                <span className="mr-2 d-none d-lg-inline text-gray-600 medium"><i className="fas fa-sign-in-alt"></i> login </span>
+                <Link className="nav-link" to="/login" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span className="mr-2 d-none d-lg-inline text-gray-600 medium"><i className="fas fa-sign-in-alt"></i> Login or Sign up</span>
                 <img className="img-profile" src={unknownUserIcon} alt="icon" />
                 </Link>
+
+                {/* Dropdown - User Information */}
+                <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <Link className="dropdown-item" to="/login">
+                    <i className="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400" />
+                    Login
+                    </Link>
+                    <div className="dropdown-divider" />
+                    <Link className="dropdown-item" to="/signup">
+                    <i className="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400" />
+                    Sign up
+                    </Link>
+                </div>
+
+
             </li>
         )
     } else {
@@ -53,7 +67,7 @@ function User() {
                     Profile
                     </Link>
                     <div className="dropdown-divider" />
-                    <button className="dropdown-item" to="/" data-toggle="modal" data-target="#logoutModal" onClick={logoutHandler}>
+                    <button className="dropdown-item" data-toggle="modal" data-target="#logoutModal" onClick={() => redirectHandler("/")}>
                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
                     Logout
                     </button>

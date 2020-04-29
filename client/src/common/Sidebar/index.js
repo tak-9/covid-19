@@ -18,7 +18,12 @@ function Sidebar() {
         </Link>
         
         {/* Divider */}
-        <hr className="sidebar-divider my-0" />
+        <hr className="sidebar-divider" />
+
+        { /* Sidebar Heading */}
+        <div className="sidebar-heading">
+        Covid-19 Information
+        </div>
 
         {/* Nav Item - Dashboard */}
         <Item   className = {"active"}
@@ -38,16 +43,37 @@ function Sidebar() {
                 icon = {<i className="fas fa-fw fa-table" />}
                 text = {<span>Tables</span>}/>
 
-        {/* Nav Item - Tables */}
+        {/* Divider */}
+        <hr className="sidebar-divider d-none d-md-block" />
+        { /* Sidebar Heading */}
+        <div className="sidebar-heading">
+        User Management
+        </div>
+
+        {/* Nav Item - Login */}
         <Item   active = {''}
                 href = {"/login"} 
-                icon = {<i className="fas fa-fw fa-table" />}
+                icon = {<i className="fas fa-sign-in-alt" />}
                 text = {<span>Login</span>}/>
 
-        {/* Nav Item - Tables */}
+        {/* Nav Item - Login */}
+        <Item   active = {''}
+                href = {"/signup"} 
+                icon = {<i className="fas fa-user-plus" />}
+                text = {<span>Sign Up</span>}/>
+
+        {/* Divider */}
+        <hr className="sidebar-divider d-none d-md-block" />
+
+        { /* Sidebar Heading */}
+        <div className="sidebar-heading">
+        Login Required
+        </div>
+
+        {/* Nav Item - Tracker */}
         <Item   active = {''}
                 href = {"/tracker"} 
-                icon = {<i className="fas fa-fw fa-table" />}
+                icon = {<i className="fas fa-house-user" />}
                 text = {<span>Stay Home Tracker</span>}/>
 
         {/* Divider */}
