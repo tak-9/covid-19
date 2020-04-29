@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Topbar from '../common/Topbar';
 import { LoginContext } from '../contexts/LoginContext';
+import { serverUrl } from '../util/env';
 
 class Signup extends Component {
     static contextType = LoginContext;
@@ -23,7 +24,6 @@ class Signup extends Component {
 		})
 	}
 	handleSubmit(event) {
-        const serverUrl = 'http://localhost:3001';
         const { setLogInState } = this.context;
 
         console.log('sign-up handleSubmit, username: ')
