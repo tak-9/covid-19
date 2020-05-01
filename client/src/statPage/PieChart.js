@@ -4,7 +4,7 @@ import axios from 'axios';
 
 class PieChart extends Component {
     chartRef = React.createRef();
-
+   
     componentDidMount(){
         this.getDataByState()
         .then(result => this.createChart(result));
@@ -54,7 +54,8 @@ class PieChart extends Component {
             states.push(input[i].state);
             labels.push(input[i].state + "(" + input[i].cases + ")")
         }
-        console.log(states, confirmedCases);
+        //console.log(states, confirmedCases);
+        
         new Chart(myChartRef, {
             type: 'doughnut',
             data: {
@@ -88,19 +89,21 @@ class PieChart extends Component {
                 caretPadding: 10,
               },
               legend: {
+                display: true, 
                 position: "bottom", 
               },
               cutoutPercentage: 50,          
             }
         })
+
     }
 
     render() {
         return ( 
-        <div className="card shadow mb-4 h-100">
+        <div className="card shadow mb-4">
             {/* Card Header - Dropdown  */}
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 className="m-0 font-weight-bold text-primary">Confirmed Cases in Australia</h6>
+                <h6 className="m-0 font-weight-bold text-primary">Confirmed Cases by Australian States</h6>
                 {/*-- Dropdown menu has been removed from here -- */}
             </div>
 
