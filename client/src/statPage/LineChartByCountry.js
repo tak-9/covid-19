@@ -6,7 +6,7 @@ function LineChartByCountry() {
     useScript("js/demo/chart-area-demo.js");
 
     return (
-        <div className="card shadow mb-4">
+        <div className="card shadow mb-4 h-100">
             {/* Card Header - Dropdown */}
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 className="m-0 font-weight-bold text-primary">Number of Cases</h6>
