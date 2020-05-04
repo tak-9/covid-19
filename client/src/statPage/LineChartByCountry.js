@@ -13,7 +13,6 @@ class LineChartByCountry extends Component {
     getTimelineDataAus() {
         return new Promise((resolve, reject) => { 
             const coronaAustUrl = "https://corona-api.com/countries/au";
-            var timeline;
             axios.get(coronaAustUrl)
             .then(res => {
                 // console.log("getTimelineDataAus() res", res.data.data.timeline)
@@ -36,7 +35,7 @@ class LineChartByCountry extends Component {
         }
         console.log(dates);
         const myChartRef = this.chartRef.current.getContext("2d");  
-        var myLineChart = new Chart(myChartRef, {
+        new Chart(myChartRef, {
             type: 'line',
             data: {
               labels: dates,
@@ -83,10 +82,6 @@ class LineChartByCountry extends Component {
                   ticks: {
                     maxTicksLimit: 5,
                     padding: 10,
-                    // Include a dollar sign in the ticks
-                    // callback: function(value, index, values) {
-                    //   return '$' + number_format(value);
-                    // }
                   },
                   gridLines: {
                     color: "rgb(234, 236, 244)",
@@ -114,12 +109,6 @@ class LineChartByCountry extends Component {
                 intersect: false,
                 mode: 'index',
                 caretPadding: 10,
-                // callbacks: {
-                //   label: function(tooltipItem, chart) {
-                //     var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                //     return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
-                //   }
-                // }
               }
             }
           });
