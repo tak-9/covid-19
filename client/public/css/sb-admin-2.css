@@ -1735,13 +1735,22 @@ pre code {
   border: 0;
 }
 
-.form-control:focus {
+/* Removed this because it does not work with setCustomValidity() */
+/* .form-control:focus {
   color: #6e707e;
   background-color: #fff;
   border-color: #bac8f3;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
-}
+} */
+
+/* .form-control-error {
+  color:#f65356;
+  background-color: #fff;
+  border-color:  red;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(133, 135, 150, 0.25);
+} */
 
 .form-control::-webkit-input-placeholder {
   color: #858796;
@@ -10584,13 +10593,13 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+  background: url("../img/login.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+  background: url("../img/signup.jpg");
   background-position: center;
   background-size: cover;
 }

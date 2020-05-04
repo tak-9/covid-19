@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import axios from 'axios'
 import Topbar from '../common/Topbar';
 import { LoginContext } from '../contexts/LoginContext';
@@ -13,21 +13,46 @@ class Signup extends Component {
 		this.state = {
 			username: '',
 			password: '',
-			confirmPassword: '',
-		}
+            confirmPassword: '',
+            validationOK: false
+        }
+        this.passwordInput = React.createRef();
+        this.confirmPasswordInput = React.createRef();
+
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
-		})
-	}
+        }, () => {
+            this.setState({"validationOK": true})
+
+            console.log("this.confirmPasswordInput", this.confirmPasswordInput);
+            if (this.state.password !== this.state.confirmPassword){
+                console.log("confirm password is Not same");
+                this.confirmPasswordInput.current.setCustomValidity("Invalid password");
+                this.setState({"validationOK": false})
+            } else {
+                console.log("confirm password is same");
+                this.confirmPasswordInput.current.setCustomValidity("");
+            }
+            if (this.state.username === ""){
+                this.setState({"validationOK": false})
+            }
+
+        })
+
+    }
 	handleSubmit(event) {
         const { setLogInState } = this.context;
 
         console.log('sign-up handleSubmit, username: ')
 		console.log(this.state.username)
+		console.log(this.state.password)
+        console.log(this.state.confirmPassword)
+        //TODO: Implement confirm password here. 
+        // Display error message
         event.preventDefault()
 
 
@@ -66,52 +91,80 @@ render() {
         return (
             <div id="content-wrapper" className="d-flex flex-column">
                 <div id="content">
-                <Topbar title="Sign Up" />
+                    <Topbar title="Sign Up" />
+                    <div className="row justify-content-center">
+                        <div className="col-xl-10 col-lg-12 col-md-9">
+                            <div className="card o-hidden border-0 shadow-lg my-5">
+                                <div className="card-body p-0">
+                                    <div className="row">
+                                        <div className="col-lg-7">
+                                            <div className="p-5">
+                                                <div className="text-center">
+                                                    <h1 className="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                                </div>
+                                                <form className="user">
+                                                    <div className="form-group">
+                                                        <input 
+                                                            className="form-control form-control-user" 
+                                                            type="text"
+                                                            id="username"
+                                                            name="username"
+                                                            placeholder="Username"
+                                                            value={this.state.username}
+                                                            onChange={this.handleChange}
+                                                            required={true}
+                                                        />
+                                                    </div>
+                                                    <div className="form-group row">
+                                                        <div className="col-sm-6 mb-3 mb-sm-0">
+                                                            <input 
+                                                                className="form-control form-control-user" 
+                                                                placeholder="Password"
+                                                                type="password"
+                                                                name="password"
+                                                                value={this.state.password}
+                                                                onChange={this.handleChange}
+                                                                ref={this.passwordInput}
+                                                            />
+                                                        </div>
+                                                        <div className="col-sm-6">
+                                                            <input 
+                                                                className="form-control form-control-user" 
+                                                                placeholder="Repeat Password" 
+                                                                type="password" 
+                                                                name="confirmPassword"
+                                                                id="confirmPassword"
+                                                                value={this.state.confirmPassword}
+                                                                onChange={this.handleChange}
+                                                                ref={this.confirmPasswordInput}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        className="btn btn-primary btn-user btn-block"
+                                                        onClick={this.handleSubmit}
+                                                        type="submit"
+                                                        disabled={!this.state.validationOK}>
+                                                        Sign up
+                                                    </button>
+                                                </form>
+                                                <hr />
+                                                <div className="text-center">
+                                                <Link to="/login">
+                                                    <span className="small">Already have an account? Login!</span>
+                                                </Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-5 d-none d-lg-block bg-register-image" />
 
-                <div className="SignupForm">
-                    <h4>Sign up</h4>
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="username">Username</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="Username"
-                                    value={this.state.username}
-                                    onChange={this.handleChange}
-                                />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password: </label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    placeholder="password"
-                                    type="password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group ">
-                            <div className="col-7"></div>
-                            <button
-                                className="btn btn-primary col-1 col-mr-auto"
-                                onClick={this.handleSubmit}
-                                type="submit"
-                            >Sign up</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
 	)} // end 'if'
 }
 }
