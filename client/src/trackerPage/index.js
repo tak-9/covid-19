@@ -18,7 +18,9 @@ function TrackerPage() {
         <Sidebar />
         <ContentWrapper>
             <Topbar title="Stay Home Tracker"/>
-            {loggedIn ? <TrackerContent /> : <TrackerLogin />} 
+            {/* <TrackerContent/> */}
+            { loggedIn ? <TrackerContent /> : <TrackerLogin /> }
+            
         </ContentWrapper>
     </div>
     );

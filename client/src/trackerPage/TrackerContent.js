@@ -1,15 +1,23 @@
 import React, {useContext} from 'react';
 import { LoginContext } from '../contexts/LoginContext';
+import Summary from './Summary';
+import DataEntry from './DataEntry';
 
 function TrackerContent() {
     let loginCtx = useContext(LoginContext);
     let { loggedIn, username } = loginCtx;
 
     return ( 
-    <div>
-        <h1>You are logged in as {username}. </h1>
-        Tracker content will be inserted here.<br/>
-    </div>
+        <div class="container-fluid">
+            <div className="row">
+                <div class="col-lg-7">
+                    <Summary/>
+                </div>
+                <div class="col-lg-4">
+                    <DataEntry/>
+                </div>
+            </div>
+        </div>
     );
 }
 export default TrackerContent;
