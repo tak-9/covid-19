@@ -56,7 +56,7 @@ class Signup extends Component {
 
 
 		//request to server to add a new username/password
-		axios.post(serverUrl + '/user/', {
+		axios.post(serverUrl + '/api/user/', {
 			username: this.state.username,
 			password: this.state.password
 		})

@@ -31,7 +31,7 @@ class Login extends Component {
         console.log('handleSubmit')
         console.log('username, password: ' + this.state.username, ' ', this.state.password)
         axios
-            .post(serverUrl + '/user/login', {
+            .post(serverUrl + '/api/user/login', {
                 username: this.state.username,
                 password: this.state.password
             })
