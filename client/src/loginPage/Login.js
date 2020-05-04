@@ -72,12 +72,13 @@ class Login extends Component {
                                         </div>
                                         <form className="user">
                                             <div className="form-group">
-                                                <input type="email" 
-                                                className="form-control form-control-user" 
+                                                <input 
+                                                className="form-control form-control-user"
+                                                type="text" 
                                                 id="username" 
                                                 name="username"
                                                 aria-describedby="emailHelp" 
-                                                placeholder="Enter Email Address..." 
+                                                placeholder="Enter Usename ..." 
                                                 value={this.state.username}
                                                 onChange={this.handleChange}
                                                 />
