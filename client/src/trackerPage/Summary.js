@@ -12,11 +12,11 @@ function Summary() {
             </div>
             <div class="card-body">
                 Total hours spent outside home: 
-                <h1 className="ml-5 mt-3"> 8 Hours</h1>
+                <h2 className="ml-5 mt-3">8 Hours</h2>
                 Percentage of staying at home: 
-                <h1 className="ml-5 mt-3"> 95%</h1>
+                <h2 className="ml-5 mt-3">95%</h2>
                 Status:
-                <h1 className="ml-5 mt-3">Excellent <i class="fas fa-smile text-warning"></i></h1>
+                <h2 className="ml-5 mt-3">Excellent <i class="fas fa-smile text-warning"></i></h2>
                 {/* <h1>60-80% <i class="fas fa-frown text-warning"></i> 0-60% <i class="fas fa-dizzy text-warning"></i> </h1> */}
             </div>
         </div>

@@ -29,9 +29,8 @@ function DataEntry(){
                 />
                 <div className="container">
                     <p/>
-                    {selectedDay?  selectedDay.toLocaleDateString('en-AU'): 'Please select day 👻'}
-                    <p/>
-                    Hours Spent Outside:
+                    {selectedDay?  selectedDay.toLocaleDateString('en-AU'): 'Please select day 👻'}<p/>
+                    Hours Spent Outside: 
                     <p/>
                     <input 
                         type="number" 
@@ -40,6 +39,8 @@ function DataEntry(){
                         max="24"
                         className="form-control"
                     />
+                    <p/>
+                    <button className="btn btn-secondary btn-block"> Register </button>
                 </div>
             </div>
         </div>
