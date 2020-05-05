@@ -3,12 +3,19 @@ const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs');
 mongoose.promise = Promise
 
+const trackerSchema = new Schema({
+    day: Date,
+    outsidehours: {
+        type: Number,
+        min: [0, 'Negative number is not allowed'], 
+    }
+})
+
 // Define userSchema
 const userSchema = new Schema({
-
 	username: { type: String, unique: false, required: false },
-	password: { type: String, unique: false, required: false }
-
+	password: { type: String, unique: false, required: false },
+    tracker: [trackerSchema]
 })
 
 // Define schema methods
