@@ -31,7 +31,7 @@ function User() {
             <li className="nav-item dropdown no-arrow">
                 {/* Nav Item - User Information  */}
                 <Link className="nav-link" to="/login" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span className="mr-2 d-none d-lg-inline text-gray-600 medium"><i className="fas fa-sign-in-alt"></i> Login or Sign up</span>
+                <span className="mr-2 d-none d-lg-inline text-gray-600 medium"><i className="fas fa-sign-in-alt"> </i> &nbsp;Login</span>
                 <img className="img-profile" src={unknownUserIcon} alt="icon" />
                 </Link>
 
