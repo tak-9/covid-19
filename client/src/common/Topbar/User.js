@@ -7,7 +7,6 @@ import unknownUserIcon from '../../img/unknown_user.svg';
 function User() {
     let loginCtx = useContext(LoginContext);
     let { setLogInState, loggedIn, username } = loginCtx;
-    console.log("****User.js logIn**** loggedIn, username : ", loggedIn, username)
 
     const[redirectUrl, setRedirectUrl] = useState('');
 
