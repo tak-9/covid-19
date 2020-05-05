@@ -47,9 +47,37 @@ router.post('/:username/:date/:hours', (req, res) => {
 })
 
 // Get number of hours spent outside for past x days.
-router.get('/:username/:days', (req, res, next) => {
-    console.log('GET /tracker/:username/:days is called.');
-    res.json({});
+router.get('/:username/:daysBefore', (req, res, next) => {
+    console.log('GET /tracker/:username/:days is called.', req.params.username, req.params.days);
+
+    var { username, daysBefore } = req.params;
+
+    // Get date 
+    var xDaysBefore = new Date();
+    xDaysBefore.setDate(xDaysBefore.getDate() - daysBefore);
+
+    console.log("*** xDaysBefore", xDaysBefore);
+
+    User.find({username: username})
+    .then((dbResult) => {
+        console.log("*** findOneAndUpdate:", dbResult);
+        // res.json(dbResult);
+        var tracker = dbResult[0].tracker;
+        var totalOutsidehours =0;
+        for (var i=0; i<tracker.length; i++){
+            var trackerDay = new Date(tracker[i].day);
+            if (trackerDay > xDaysBefore){
+                //console.log("=== ", trackerDay, " ===");
+                totalOutsidehours += tracker[i].outsidehours
+            }
+        }
+        console.log("totalOutsidehours", totalOutsidehours);
+        res.json({outsidehours:totalOutsidehours});        
+        })
+    .catch(err => {
+        console.log("*** error ***",err);
+        res.status(500).json(err)
+    });
 })
 
 module.exports = router
