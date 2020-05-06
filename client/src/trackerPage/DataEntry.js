@@ -2,17 +2,19 @@ import React, {useContext, useState} from 'react';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { LoginContext } from '../contexts/LoginContext';
+import { TrackerContext } from '../contexts/TrackerContext';
 import { serverUrl } from '../util/env';
 import axios from 'axios';
 
 
 function DataEntry(){
     let loginCtx = useContext(LoginContext);
+    let trackerCtx = useContext(TrackerContext);
     let { username } = loginCtx;
+    let { setTriggerUpdate } = trackerCtx;
 
     const [selectedDay, setSelectedDay] = useState(null);
     const [outsideHours, setOutsideHours] = useState();
-
 
     var handleDayClick = function(day, modifiers = {}) {
         if (modifiers.disabled){
@@ -28,12 +30,14 @@ function DataEntry(){
         const year = selectedDay.getFullYear();
         let url = `${serverUrl}/api/tracker/${username}/${date}-${month}-${year}/${outsideHours}`;
         console.log(url);
+        
         axios.post(url, {})
         .then(()=>{
-            console.log("axios ok.");
+            console.log("DataEntry axios ok.");
+            setTriggerUpdate();
         })
         .catch(()=>{
-            console.log("axios error");
+            console.log("DataEntry axios error");
         })
     }
 

@@ -11,22 +11,22 @@ function TrackerPage() {
   useScript("js/sb-admin-2.js");
 
     let loginCtx = useContext(LoginContext);
-    let { loggedIn, username } = loginCtx;
+    let { loggedIn } = loginCtx;
 
     // TODO: This is for development. Remove this when completed. 
-    let jsx;
-    if (process.env.NODE_ENV === "production") {
-        jsx = loggedIn ? <TrackerContent /> : <TrackerLogin /> 
-    } else {
-        jsx = <TrackerContent/>;
-    }
+    // let jsx;
+    // if (process.env.NODE_ENV === "production") {
+    //     jsx = loggedIn ? <TrackerContent /> : <TrackerLogin /> 
+    // } else {
+    //     jsx = <TrackerContent/>;
+    // }
 
     return (
     <div id="wrapper">
         <Sidebar />
         <ContentWrapper>
             <Topbar title="Stay Home Tracker"/>
-            {jsx}
+            {loggedIn ? <TrackerContent /> : <TrackerLogin />}
         </ContentWrapper>
     </div>
     );

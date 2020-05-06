@@ -5,12 +5,14 @@ import LoginPage from './loginPage';
 import SignUpPage from './signUpPage';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginContextProvider  from './contexts/LoginContext';
+import TrackerContextProvider from './contexts/TrackerContext';
 //import LogoutModal from './common/LogoutModal';
 
 function App() {
   return (
     <div id="page-top">
       <LoginContextProvider>
+      <TrackerContextProvider>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={StatPage} />
@@ -20,6 +22,7 @@ function App() {
           </Switch>
           {/* <LogoutModal/> */}
         </BrowserRouter>
+        </TrackerContextProvider>
       </LoginContextProvider>
     </div>
   );
