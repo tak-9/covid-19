@@ -32,9 +32,9 @@ function Summary(props) {
 
     var percentageAtHome = Math.round(100 - (( outsideHours / (24 * 7) ) * 100));
     var atHomeStatusJsx;
-    if (setOutsideHours < 14) {
+    if (outsideHours < 14) {
         atHomeStatusJsx = <h2 className="ml-5 mt-3">Good <i class="fas fa-smile text-warning"></i></h2> 
-    } else if (setOutsideHours < 21) {
+    } else if (outsideHours < 21) {
         atHomeStatusJsx = <h2 className="ml-5 mt-3">Bad <i class="fas fa-frown text-warning"></i></h2>        
     } else {
         atHomeStatusJsx = <h2 className="ml-5 mt-3">Poor <i class="fas fa-dizzy text-warning"></i></h2>
@@ -53,7 +53,7 @@ function Summary(props) {
                 <h2 className="ml-5 mt-3">{percentageAtHome}%</h2>
                 Status:
                 {atHomeStatusJsx}
-                0-14hours: Good, 14-21hours: Bad, 21+ hours: Poor
+                (0-14hours: Good, 14-21hours: Bad, 21+ hours: Poor)
             </div>
         </div>
     )
