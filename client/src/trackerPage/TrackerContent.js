@@ -5,14 +5,14 @@ import Feed from './Feed';
 
 function TrackerContent() {
     return ( 
-        <div class="container-fluid">
+        <div className="container-fluid">
             {console.log("TrackerContent()")}
             <div className="row">
-                <div class="col-xl-7 col-lg-7 col-md-5 col-sm-4">
+                <div className="col-xl-7 col-lg-7 col-md-5 col-sm-4">
                     <Summary />
                     <Feed/>
                 </div>
-                <div class="col-xl-4 col-lg-5 col-md-7 col-sm-8">
+                <div className="col-xl-4 col-lg-5 col-md-7 col-sm-8">
                     <DataEntry />
                 </div>
             </div>

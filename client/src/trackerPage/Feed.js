@@ -29,7 +29,7 @@ function Feed() {
 
     var jsx ; 
     if (typeof feedData != 'undefined') {
-        var jsx = feedData.tracker.map((item, i) => {
+        jsx = feedData.tracker.map((item, i) => {
                 let dayName = new Date(item.day).toLocaleDateString("en-AU", {weekday: 'long'});
                 let monthName = new Date(item.day).toLocaleDateString("en-AU", {month: 'long'});
                 let dateStr = dayName + ", " + new Date(item.day).getDate() + " " + monthName;
@@ -45,7 +45,7 @@ function Feed() {
             <div className="card-header py-3">
                 <h6 className="m-0 font-weight-bold text-primary">Feed for last 7 days</h6>
             </div>
-            <div class="card-body">
+            <div className="card-body">
                 {jsx}  
             </div>
         </div>    

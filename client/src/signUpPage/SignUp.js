@@ -133,7 +133,7 @@ render() {
                                                 />
                                             </div>
                                         </div>
-                                        <div class="text-danger mb-3">{this.state.errorMessage}</div>
+                                        <div className="text-danger mb-3">{this.state.errorMessage}</div>
                                         <button
                                             className="btn btn-primary btn-user btn-block"
                                             onClick={this.handleSubmit}

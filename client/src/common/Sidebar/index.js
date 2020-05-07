@@ -22,7 +22,7 @@ function Sidebar(props) {
             </div>
 
             {/* Nav Item - Dashboard */}
-            <Item   className = {props.currentPage == "dashboard" ? "active" : "" }
+            <Item   className = {props.currentPage === "dashboard" ? "active" : "" }
                     href = {"/"} 
                     icon = {<i className="fas fa-fw fa-tachometer-alt" />}
                     text = {<span>Dashboard</span>}/>
@@ -47,13 +47,13 @@ function Sidebar(props) {
             </div>
 
             {/* Nav Item - Login */}
-            <Item   className = {props.currentPage == "login" ? "active" : "" }
+            <Item   className = {props.currentPage === "login" ? "active" : "" }
                     href = {"/login"} 
                     icon = {<i className="fas fa-sign-in-alt" />}
                     text = {<span>Login</span>}/>
 
             {/* Nav Item - SignUp */}
-            <Item   className = {props.currentPage == "signup" ? "active" : "" }
+            <Item   className = {props.currentPage === "signup" ? "active" : "" }
                     href = {"/signup"} 
                     icon = {<i className="fas fa-user-plus" />}
                     text = {<span>Sign Up</span>}/>
@@ -67,7 +67,7 @@ function Sidebar(props) {
             </div>
 
             {/* Nav Item - Tracker */}
-            <Item   className = {props.currentPage == "tracker" ? "active" : "" }
+            <Item   className = {props.currentPage === "tracker" ? "active" : "" }
                     href = {"/tracker"} 
                     icon = {<i className="fas fa-house-user" />}
                     text = {<span>Stay Home Tracker</span>}/>

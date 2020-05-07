@@ -52,12 +52,12 @@ function DataEntry(){
     } 
 
     return (
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">New Data Entry</h6>
+        <div className="card shadow mb-4">
+            <div className="card-header py-3">
+                <h6 className="m-0 font-weight-bold text-primary">New Data Entry</h6>
             </div>
-            <div class="card-body">
-                <div class="d-flex justify-content-center">
+            <div className="card-body">
+                <div className="d-flex justify-content-center">
                 <DayPicker
                     selectedDays={selectedDay}
                     onDayClick={handleDayClick}

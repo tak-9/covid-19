@@ -33,19 +33,19 @@ function Summary(props) {
     var percentageAtHome = Math.round(100 - (( outsideHours / (24 * 7) ) * 100));
     var atHomeStatusJsx;
     if (outsideHours < 14) {
-        atHomeStatusJsx = <h2 className="ml-5 mt-3">Good <i class="fas fa-smile text-warning"></i></h2> 
+        atHomeStatusJsx = <h2 className="ml-5 mt-3">Good <i className="fas fa-smile text-warning"></i></h2> 
     } else if (outsideHours < 21) {
-        atHomeStatusJsx = <h2 className="ml-5 mt-3">Bad <i class="fas fa-frown text-warning"></i></h2>        
+        atHomeStatusJsx = <h2 className="ml-5 mt-3">Bad <i className="fas fa-frown text-warning"></i></h2>        
     } else {
-        atHomeStatusJsx = <h2 className="ml-5 mt-3">Poor <i class="fas fa-dizzy text-warning"></i></h2>
+        atHomeStatusJsx = <h2 className="ml-5 mt-3">Poor <i className="fas fa-dizzy text-warning"></i></h2>
     }
 
     return (
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Summary for {username} last 7 days</h6>
+        <div className="card shadow mb-4">
+            <div className="card-header py-3">
+            <h6 className="m-0 font-weight-bold text-primary">Summary for {username} last 7 days</h6>
             </div>
-            <div class="card-body">
+            <div className="card-body">
                 Total hours spent outside home: 
                 <h2 className="ml-5 mt-3">{outsideHours} Hours</h2>
                 Percentage of staying at home:
