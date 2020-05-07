@@ -6,39 +6,58 @@ const passport = require('../passport')
 // Save number of hours staying at home. 
 // date is dd-mm-yyyy
 router.post('/:username/:date/:hours', (req, res) => {
-    console.log('POST /tracker/:username/:date/:hours is called.', req.params.username, req.params.hours);
     var { username, date, hours } = req.params;
-    // console.log(username, date, hours);
+    console.log("POST /api/tracker/" + username + "/" + date + "/" + hours + " is called.");
 
-    // Get date 
-    var dateArr = date.split('-');
-    var day = parseInt(dateArr[0]);
-    var month = parseInt(dateArr[1]);
-    var year = parseInt(dateArr[2]);
-    // console.log(`${year} ${month} ${day}`)
-    // 'month' argument for new Date() is 0 - 11
-    var dayStart = new Date(year, month-1, day, 0, 0, 0, 0);
-    var dayEnd = new Date(year, month-1, day, 23, 59, 59, 999);
-
-    console.log("*** dayStart dayEnd", dayStart, dayEnd)
-
-    const filter = { username: username ,
-                        'tracker.day': {$gt: dayStart, $lt: dayEnd} 
-                    };
-    const setNewValue = { $set: {'tracker.$.outsidehours': hours} }; 
-    const projection = { username: username ,
-                            tracker: { $elemMatch: {day: {$gt: dayStart, $lt: dayEnd}}}
-                        };
-    
-    //TODO: Fix bug upsert is not working. 
+    // Get date
+    var dayObj = strToDate(date);
+    var dayStart = new Date(dayObj.setHours(0,0,0,0));
+    var dayEnd = new Date(dayObj.setHours(23,59,59,999));
+    var dayNoon = new Date(dayObj.setHours(12,0,0,0));
+    const filter = {
+        username: username,
+        'tracker.day': { $gt: dayStart, $lt: dayEnd }
+    };
+    const setNewValue = { $set: { 'tracker.$.outsidehours': hours } };
+    const projection = {
+        tracker: {
+            $elemMatch: {
+                day: { $gt: dayStart, $lt: dayEnd }
+            }
+        }
+    };
+    // First, Update if there is any existing record for sepecified day. 
     User.findOneAndUpdate(
         filter,
         setNewValue, 
-        { upsert: true, select: projection } 
+        { select: projection } 
     )
     .then((dbResult) => {
-        console.log("*** findOneAndUpdate:", dbResult);
-        res.json(dbResult);
+        console.log("*** findOneAndUpdate 1:", dbResult);
+        // Second, insert a new record if there is no exisiting record found with previous search.
+        if (dbResult === null || dbResult.tracker.length === 0){
+            User.findOneAndUpdate(
+                { username: username }, 
+                {
+                    $push: {
+                        tracker: {
+                            day: dayNoon,
+                            outsidehours: hours
+                        }
+                    }
+                }
+            )
+            .then((insertResult)=>{
+                //console.log("*** insertResult *** ",insertResult);
+                res.json(insertResult);
+            })
+            .catch((err)=>{
+                console.log("Insert error",err);
+                res.status(500).json(err)
+            })
+        } else {
+            res.json(dbResult);
+        }
     })
     .catch(err => {
         console.log("*** error ***",err);
