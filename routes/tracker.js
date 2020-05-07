@@ -106,7 +106,6 @@ router.get('/hours/:username/:today/:daysBefore', (req, res, next) => {
     });
 })
 
-
 router.get('/feed/:username/:today/:daysBefore', (req, res, next) => {
     console.log('GET /api/feed/hours/:username/:today/:daysBefore is called.', req.params.username, req.params.days);
     // Today is passed from web browser as server is in USA and client is Aus.
@@ -121,10 +120,13 @@ router.get('/feed/:username/:today/:daysBefore', (req, res, next) => {
     User.find({username: username})
     .then((dbResult) => {
         console.log("*** findOneAndUpdate:", dbResult);
-
         // Remove item if older than xDaysBefore
         var filteredTracker = dbResult[0].tracker.filter((item)=>{
             return (item.day > xDaysBefore)
+        });
+        // Sort 'filteredTracker' by day
+        filteredTracker.sort((a,b)=>{
+            return b.day.getTime() - a.day.getTime();
         })
         dbResult[0].tracker = filteredTracker;
         res.json(dbResult);

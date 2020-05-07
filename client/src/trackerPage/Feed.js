@@ -43,7 +43,7 @@ function Feed() {
     return (
         <div className="card shadow mb-4">
             <div className="card-header py-3">
-                <h6 className="m-0 font-weight-bold text-primary">Feed</h6>
+                <h6 className="m-0 font-weight-bold text-primary">Feed for last 7 days</h6>
             </div>
             <div class="card-body">
                 {jsx}  
