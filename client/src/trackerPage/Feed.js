@@ -33,7 +33,6 @@ function Feed() {
                 let dayName = new Date(item.day).toLocaleDateString("en-AU", {weekday: 'long'});
                 let monthName = new Date(item.day).toLocaleDateString("en-AU", {month: 'long'});
                 let dateStr = dayName + ", " + new Date(item.day).getDate() + " " + monthName;
-                console.log("----item.username", item);
                 return <Activity key={i} 
                             username={feedData.username}
                             date={dateStr}
