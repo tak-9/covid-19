@@ -14,11 +14,13 @@ router.post('/:username/:date/:hours', (req, res) => {
     var dayStart = new Date(dayObj.setHours(0,0,0,0));
     var dayEnd = new Date(dayObj.setHours(23,59,59,999));
     var dayNoon = new Date(dayObj.setHours(12,0,0,0));
+    console.log(dayStart," ", dayEnd);
     const filter = {
         username: username,
         'tracker.day': { $gt: dayStart, $lt: dayEnd }
     };
     const setNewValue = { $set: { 'tracker.$.outsidehours': hours } };
+    const newValue = { 'tracker.$.outsidehours': hours };
     const projection = {
         tracker: {
             $elemMatch: {
@@ -26,11 +28,12 @@ router.post('/:username/:date/:hours', (req, res) => {
             }
         }
     };
+ 
+    
     // First, Update if there is any existing record for sepecified day. 
-    User.findOneAndUpdate(
+    User.findOne(
         filter,
-        setNewValue, 
-        { select: projection } 
+        projection 
     )
     .then((dbResult) => {
         console.log("*** findOneAndUpdate 1:", dbResult);
@@ -56,13 +59,27 @@ router.post('/:username/:date/:hours', (req, res) => {
                 res.status(500).json(err)
             })
         } else {
-            res.json(dbResult);
+            // If there is already existing record, update a new record.
+            for (var i=0; i<dbResult.tracker.length; i++){
+                dbResult.tracker[i].outsidehours = hours;
+            }
+            //console.log("******dbResult",dbResult)
+            dbResult.save()
+            .then(() => { 
+                res.json(dbResult);                
+            })
+            .catch((err)=>{
+                console.log("Update error",err);
+                res.status(500).json(err)
+            })
         }
+
     })
     .catch(err => {
         console.log("*** error ***",err);
         res.status(500).json(err)
     });
+    
 
 })
 
