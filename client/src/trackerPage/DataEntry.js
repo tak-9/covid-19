@@ -42,9 +42,14 @@ function DataEntry(){
     }
 
     var buttonDisabled = true;
-    if ((selectedDay !== null) && (typeof outsideHours != 'undefined')){
-        buttonDisabled = false;
-    }
+    // Day must be selected in calendar AND Hours must be entered.
+    if ((selectedDay) && (outsideHours)) { 
+        // Validate entry in outside hour.
+        if ((outsideHours > 0) && (outsideHours < 24)) {   
+            console.log("setting button status to false");
+            buttonDisabled = false;
+        }
+    } 
 
     return (
         <div class="card shadow mb-4">
@@ -71,7 +76,7 @@ function DataEntry(){
                         onChange={(e)=>setOutsideHours(e.target.value)}
                     />
                     <p/>
-                    <button className="btn btn-secondary btn-block" 
+                    <button className="btn btn-primary btn-block" 
                             onClick={buttonHandler} 
                             disabled={buttonDisabled}> 
                         Register 
