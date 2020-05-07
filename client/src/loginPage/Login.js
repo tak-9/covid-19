@@ -12,11 +12,23 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
+            rememberMe: true,
             redirectTo: null,
-            errorMessage: '' 
+            errorMessage: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.handleRememberMe = this.handleRememberMe.bind(this)
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount()")
+        // const rememberMe = localStorage.getItem('rememberMe') === 'true';
+        // const username = rememberMe ? localStorage.getItem('username') : '';
+        // this.setState({ username, rememberMe });
+        var rememberMe = localStorage.getItem('rememberMe');
+        var username = localStorage.getItem('username');
+        this.setState({username: username, rememberMe: rememberMe})
     }
 
     handleChange(event) {
@@ -25,12 +37,22 @@ class Login extends Component {
         })
     }
 
+    handleRememberMe(event) {
+        console.log("event.target.checked ", event.target.checked);
+        this.setState({ rememberMe : event.target.checked });
+    }
+
     handleSubmit(event) {
         const { setLogInState } = this.context;
         
-        event.preventDefault()
-        console.log('handleSubmit')
-        console.log('username, password: ' + this.state.username, ' ', this.state.password)
+        event.preventDefault();
+        console.log('handleSubmit');
+        console.log('username, password: ' + this.state.username, ' ', this.state.password);
+
+        const { username, rememberMe } = this.state;
+        localStorage.setItem('remeberMe', rememberMe);
+        localStorage.setItem('username', rememberMe ? username : '');
+
         axios
             .post(serverUrl + '/api/user/login', {
                 username: this.state.username,
@@ -54,7 +76,7 @@ class Login extends Component {
                     })
                 } else {
                     this.setState({
-                        errorMessage: error
+                        errorMessage: 'Login Error'
                     })
                 }
             })
@@ -101,7 +123,7 @@ class Login extends Component {
                                             </div>
                                             <div className="form-group">
                                                 <div className="custom-control custom-checkbox small">
-                                                    <input type="checkbox" className="custom-control-input" id="customCheck" />
+                                                    <input type="checkbox" className="custom-control-input" id="customCheck" checked={this.state.rememberMe} onChange={this.handleRememberMe} />
                                                     <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
                                                 </div>
                                             </div>
