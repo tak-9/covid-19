@@ -13,7 +13,8 @@ class Signup extends Component {
 			username: '',
 			password: '',
             confirmPassword: '',
-            validationOK: false
+            validationOK: false, 
+            errorMessage: ''
         }
         this.passwordInput = React.createRef();
         this.confirmPasswordInput = React.createRef();
@@ -27,9 +28,9 @@ class Signup extends Component {
         }, () => {
             this.setState({"validationOK": true})
 
-            console.log("this.confirmPasswordInput", this.confirmPasswordInput);
+            //console.log("this.confirmPasswordInput", this.confirmPasswordInput);
             if (this.state.password !== this.state.confirmPassword){
-                console.log("confirm password is Not same");
+                //console.log("confirm password is Not same");
                 this.confirmPasswordInput.current.setCustomValidity("Invalid password");
                 this.setState({"validationOK": false})
             } else {
@@ -44,16 +45,12 @@ class Signup extends Component {
 
     }
 	handleSubmit(event) {
-        const { setLogInState } = this.context;
-
-        console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
-		console.log(this.state.password)
-        console.log(this.state.confirmPassword)
-        //TODO: Implement confirm password here. 
-        // Display error message
+        // console.log('sign-up handleSubmit, username: ', username);
+		// console.log(this.state.password)
+        // console.log(this.state.confirmPassword)
         event.preventDefault()
 
+        const { setLogInState } = this.context;
 
 		//request to server to add a new username/password
 		axios.post(serverUrl + '/api/user/', {
@@ -69,16 +66,16 @@ class Signup extends Component {
                     // Update React Context if Sign up is successful. 
                     setLogInState(true, this.state.username);
 
-                    this.setState({ //redirect to login page
+                    this.setState({ //redirect to tracker page
 						redirectTo: '/tracker'
                     })
 				} else {
-					console.log('username already taken')
+                    console.log('username already taken');
+                    this.setState({ errorMessage :"Username already taken."});
 				}
 			}).catch(error => {
-				console.log('signup error: ')
-				console.log(error)
-
+				console.log('signup error: ', error);
+                this.setState({errorMessage: error});
 			})
 	}
 
@@ -136,6 +133,7 @@ render() {
                                                 />
                                             </div>
                                         </div>
+                                        <div class="text-danger mb-3">{this.state.errorMessage}</div>
                                         <button
                                             className="btn btn-primary btn-user btn-block"
                                             onClick={this.handleSubmit}
