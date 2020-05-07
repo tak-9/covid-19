@@ -22,11 +22,7 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        console.log("componentDidMount()")
-        // const rememberMe = localStorage.getItem('rememberMe') === 'true';
-        // const username = rememberMe ? localStorage.getItem('username') : '';
-        // this.setState({ username, rememberMe });
-        var rememberMe = localStorage.getItem('rememberMe');
+        var rememberMe = (localStorage.getItem('rememberMe')==('true'));
         var username = localStorage.getItem('username');
         this.setState({username: username, rememberMe: rememberMe})
     }
@@ -39,7 +35,9 @@ class Login extends Component {
 
     handleRememberMe(event) {
         console.log("event.target.checked ", event.target.checked);
-        this.setState({ rememberMe : event.target.checked });
+        this.setState({ rememberMe : event.target.checked }, () => {
+            localStorage.setItem('rememberMe', this.state.rememberMe);
+        });
     }
 
     handleSubmit(event) {
