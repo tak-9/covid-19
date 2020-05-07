@@ -45,7 +45,7 @@ function DataEntry(){
     // Day must be selected in calendar AND Hours must be entered.
     if ((selectedDay) && (outsideHours)) { 
         // Validate entry in outside hour.
-        if ((outsideHours > 0) && (outsideHours < 24)) {   
+        if ((outsideHours >= 0) && (outsideHours < 24)) {   
             console.log("setting button status to false");
             buttonDisabled = false;
         }
@@ -70,7 +70,7 @@ function DataEntry(){
                     <input 
                         type="number" 
                         name="hours" 
-                        min="1" 
+                        min="0" 
                         max="24"
                         className="form-control"
                         onChange={(e)=>setOutsideHours(e.target.value)}
