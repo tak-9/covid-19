@@ -23,7 +23,7 @@ function TrackerPage() {
 
     return (
     <div id="wrapper">
-        <Sidebar />
+        <Sidebar currentPage="tracker" />
         <ContentWrapper>
             <Topbar title="Stay Home Tracker"/>
             {loggedIn ? <TrackerContent /> : <TrackerLogin />}

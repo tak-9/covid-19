@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Item from './Item';
 
-function Sidebar() {
+function Sidebar(props) {
   return (
         <ul className="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
             {/* Sidebar - Brand */} 
@@ -22,19 +22,19 @@ function Sidebar() {
             </div>
 
             {/* Nav Item - Dashboard */}
-            <Item   className = {"active"}
+            <Item   className = {props.currentPage == "dashboard" ? "active" : "" }
                     href = {"/"} 
                     icon = {<i className="fas fa-fw fa-tachometer-alt" />}
                     text = {<span>Dashboard</span>}/>
 
             {/* Nav Item - Charts */}
-            <Item   active = {''}
+            <Item   
                     href = {"/"} 
                     icon = {<i className="fas fa-fw fa-chart-area" />}
                     text = {<span>Charts</span>}/>
 
             {/* Nav Item - Tables */}
-            <Item   active = {''}
+            <Item 
                     href = {"/"} 
                     icon = {<i className="fas fa-fw fa-table" />}
                     text = {<span>Tables</span>}/>
@@ -47,13 +47,13 @@ function Sidebar() {
             </div>
 
             {/* Nav Item - Login */}
-            <Item   active = {''}
+            <Item   className = {props.currentPage == "login" ? "active" : "" }
                     href = {"/login"} 
                     icon = {<i className="fas fa-sign-in-alt" />}
                     text = {<span>Login</span>}/>
 
-            {/* Nav Item - Login */}
-            <Item   active = {''}
+            {/* Nav Item - SignUp */}
+            <Item   className = {props.currentPage == "signup" ? "active" : "" }
                     href = {"/signup"} 
                     icon = {<i className="fas fa-user-plus" />}
                     text = {<span>Sign Up</span>}/>
@@ -67,7 +67,7 @@ function Sidebar() {
             </div>
 
             {/* Nav Item - Tracker */}
-            <Item   active = {''}
+            <Item   className = {props.currentPage == "tracker" ? "active" : "" }
                     href = {"/tracker"} 
                     icon = {<i className="fas fa-house-user" />}
                     text = {<span>Stay Home Tracker</span>}/>

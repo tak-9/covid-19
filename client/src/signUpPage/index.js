@@ -9,7 +9,7 @@ function SignUpPage() {
   useScript("js/sb-admin-2.js");
   return (
     <div id="wrapper">
-        <Sidebar />
+        <Sidebar currentPage="signup" />
         <ContentWrapper>
             <Topbar title="Sign Up" />
             <SignUp />

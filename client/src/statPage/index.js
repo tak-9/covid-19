@@ -9,7 +9,7 @@ function StatPage() {
   useScript("js/sb-admin-2.js");
   return (
     <div id="wrapper">
-        <Sidebar />
+        <Sidebar currentPage="dashboard"/>
         <ContentWrapper>
             <Topbar title="Dashboard" />
             <Content />
