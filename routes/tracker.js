@@ -106,6 +106,37 @@ router.get('/hours/:username/:today/:daysBefore', (req, res, next) => {
     });
 })
 
+
+router.get('/feed/:username/:today/:daysBefore', (req, res, next) => {
+    console.log('GET /api/feed/hours/:username/:today/:daysBefore is called.', req.params.username, req.params.days);
+    // Today is passed from web browser as server is in USA and client is Aus.
+    var { username, today, daysBefore } = req.params;
+
+    // Get date 
+    var xDaysBefore = strToDate(today);
+    xDaysBefore.setDate(xDaysBefore.getDate() - daysBefore);
+
+    console.log("*** xDaysBefore", xDaysBefore);
+
+    User.find({username: username})
+    .then((dbResult) => {
+        console.log("*** findOneAndUpdate:", dbResult);
+
+        // Remove item if older than xDaysBefore
+        var filteredTracker = dbResult[0].tracker.filter((item)=>{
+            return (item.day > xDaysBefore)
+        })
+        dbResult[0].tracker = filteredTracker;
+        res.json(dbResult);
+    })
+    .catch(err => {
+        console.log("*** error ***",err);
+        res.status(500).json(err)
+    });
+
+})
+
+
 // Covert date string dd-mm-yyyy to Date object
 function strToDate(date){
     var dateArr = date.split('-');
