@@ -33,12 +33,14 @@ class Signup extends Component {
                 //console.log("confirm password is Not same");
                 this.confirmPasswordInput.current.setCustomValidity("Invalid password");
                 this.setState({"validationOK": false})
+                this.setState({errorMessage: "Password does not match."});
             } else {
                 console.log("confirm password is same");
                 this.confirmPasswordInput.current.setCustomValidity("");
+                this.setState({errorMessage: ""});
             }
             if (this.state.username === ""){
-                this.setState({"validationOK": false})
+                this.setState({"validationOK": false});
             }
 
         })
