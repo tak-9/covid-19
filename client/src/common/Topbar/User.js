@@ -61,11 +61,11 @@ function User() {
                 </Link>
                 {/* Dropdown - User Information */}
                 <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                    <Link className="dropdown-item" to="#">
+                    {/* <Link className="dropdown-item" to="#">
                     <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
                     Profile
                     </Link>
-                    <div className="dropdown-divider" />
+                    <div className="dropdown-divider" /> */}
                     <button className="dropdown-item" data-toggle="modal" data-target="#logoutModal" onClick={() => redirectHandler("/")}>
                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
                     Logout

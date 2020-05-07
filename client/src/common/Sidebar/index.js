@@ -28,16 +28,16 @@ function Sidebar(props) {
                     text = {<span>Dashboard</span>}/>
 
             {/* Nav Item - Charts */}
-            <Item   
+            {/* <Item   
                     href = {"/"} 
                     icon = {<i className="fas fa-fw fa-chart-area" />}
-                    text = {<span>Charts</span>}/>
+                    text = {<span>Charts</span>}/> */}
 
             {/* Nav Item - Tables */}
-            <Item 
+            {/* <Item 
                     href = {"/"} 
                     icon = {<i className="fas fa-fw fa-table" />}
-                    text = {<span>Tables</span>}/>
+                    text = {<span>Tables</span>}/> */}
 
             {/* Divider */}
             <hr className="sidebar-divider d-none d-md-block" />
