@@ -12,7 +12,8 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            redirectTo: null
+            redirectTo: null,
+            errorMessage: '' 
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -39,18 +40,23 @@ class Login extends Component {
                 console.log('login response: ')
                 console.log(response)
                 if (response.status === 200) {
-
                     setLogInState(true, response.data.username);
-
                     // update the state to redirect to /tracker
                     this.setState({
                         redirectTo: '/tracker'
                     })
-                }
+                } 
             }).catch(error => {
-                console.log('login error: ')
-                console.log(error);
-                
+                console.log('login error: ', error);
+                if (error.response.status === 401) {
+                    this.setState({
+                        errorMessage: 'Username or Password is incorrect.'
+                    })
+                } else {
+                    this.setState({
+                        errorMessage: error
+                    })
+                }
             })
     }
 
@@ -99,6 +105,7 @@ class Login extends Component {
                                                     <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
                                                 </div>
                                             </div>
+                                            <div className="text-danger mb-3">{this.state.errorMessage}</div>
                                             <button
                                                 className="btn btn-primary btn-user btn-block"
                                                 onClick={this.handleSubmit}
