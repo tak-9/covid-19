@@ -57,11 +57,13 @@ function DataEntry(){
                 <h6 class="m-0 font-weight-bold text-primary">New Data Entry</h6>
             </div>
             <div class="card-body">
+                <div class="d-flex justify-content-center">
                 <DayPicker
                     selectedDays={selectedDay}
                     onDayClick={handleDayClick}
                     disabledDays={[{after: new Date()}]}
                 />
+                </div>
                 <div className="container">
                     <p/>
                     {selectedDay?  "Selected Day: " + selectedDay.toLocaleDateString('en-AU'): 'Please select day 👻'}<p/>
