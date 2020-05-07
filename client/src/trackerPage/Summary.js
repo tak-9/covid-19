@@ -18,10 +18,10 @@ function Summary(props) {
         const todayStr = today.getDate() + "-" + (parseInt(today.getMonth())+1) + "-" + today.getFullYear();
         // /api/track/hours/:username/:today/:daysBefore
         const url = `${serverUrl}/api/tracker/hours/${username}/${todayStr}/7`;
-        console.log("### Summary.js useEffect() axios get ",url);
+        //console.log("### Summary.js useEffect() axios get ",url);
         axios.get(url)
         .then((res)=>{
-            console.log("res", url, res);
+            //console.log("res", url, res);
             setOutsideHours(res.data.outside_hours);
         })
         .catch((err)=>{
@@ -42,7 +42,6 @@ function Summary(props) {
 
     return (
         <div class="card shadow mb-4">
-            {console.log("Rendering Summary")}
             <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Summary for {username} last 7 days</h6>
             </div>
