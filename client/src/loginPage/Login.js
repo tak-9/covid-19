@@ -22,7 +22,16 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        var rememberMe = (localStorage.getItem('rememberMe')==('true'));
+        console.log("localStorage.getItem('rememberMe')", localStorage.getItem('rememberMe'));
+        var rememberMe  ;
+        if (localStorage.getItem('rememberMe') === 'true'){
+            rememberMe = true;
+        } else if (localStorage.getItem('rememberMe') === null){
+            rememberMe = true;
+        } else {
+            rememberMe = false;
+        }
+        
         var username = localStorage.getItem('username');
         this.setState({username: username, rememberMe: rememberMe})
     }
