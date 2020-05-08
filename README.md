@@ -39,3 +39,4 @@ Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Passwo
 * Favicon by [icon8.com](https://icons8.com/icons/set/virus)
 * Stay home image by [unsplash.com](https://unsplash.com/photos/1B8l_3ckncI) 
 * Covid-19 virus image by [unsplash.com](https://unsplash.com/photos/w9KEokhajKw)
+* Doctor SVN image by [undraw](https://undraw.co/)
