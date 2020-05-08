@@ -7,16 +7,16 @@ This application has been deployed to Heroku.
 
 https://covid19-au.herokuapp.com/
 
+
 ## Features
 
 Dashboard 
 
+<img src="./README/dashboard.png" width=600px>
 
-Login Required for Stay Home Tracker
+Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Password: 123)
 
-
-Stay Home Tracker
-
+<img src="./README/stayhometracker.png" width=600px>
 
 ## Technologies  	
 * [React](https://reactjs.org/) (Hooks, Context API), [Bootstrap](https://getbootstrap.com/), [chart.js](https://www.chartjs.org/), [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2), [react-day-picker](http://react-day-picker.js.org/), LocalStorage
