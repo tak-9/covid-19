@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as util from './util';
 
 
-function Content() {
+function AllCountries() {
 
     var [allCountries, setAllCountries] = useState();
 
@@ -23,52 +23,47 @@ function Content() {
     ,[]);
  
     return (
-        <div className="container-fluid">
-            <div className="row justify-content-center">
-                <div className="col-xl-7 col-lg-7 col-md-9">
-                    <div className="card shadow mb-4">
-                        <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-primary">Top 20 Countries by Confirmed Cases</h6>
-                        </div>
-                        <div className="card-body">
-                            <table className="table table-striped table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Country</th>
-                                        <th>Total Confirmed Cases</th>
-                                        <th>Total Death</th>
-                                        <th>Total Recovered</th>
-                                        <th>New Cases (Today)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {console.log("render...", allCountries)}  
-                                    {allCountries ? 
-                                        allCountries.map((country, index) => 
-                                        <TableRow 
-                                            key={index} 
-                                            num={index+1} 
-                                            country={country}/>
-                                        ) : 
-                                        (
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        )
-                                        } 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+        <div className="card shadow mb-4">
+            <div className="card-header py-3">
+                <h6 className="m-0 font-weight-bold text-primary">Top 20 Countries by Confirmed Cases</h6>
+            </div>
+            <div className="card-body">
+                <table className="table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Country</th>
+                            <th>Total Confirmed Cases</th>
+                            <th>Total Death</th>
+                            <th>Total Recovered</th>
+                            <th>New Cases (Today)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {console.log("render...", allCountries)}  
+                        {allCountries ? 
+                            allCountries.map((country, index) => 
+                            <TableRow 
+                                key={index} 
+                                num={index+1} 
+                                country={country}/>
+                            ) : 
+                            (
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            )
+                            } 
+                    </tbody>
+                </table>
             </div>
         </div>
+
   );
 }
 
@@ -88,4 +83,4 @@ function TableRow(props){
 
 
 
-export default Content;
+export default AllCountries;
