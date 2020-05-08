@@ -1,5 +1,6 @@
 import React from 'react';
 import StatPage from './statPage';
+import AllCountriesPage from './allCountriesPage';
 import TrackerPage from './trackerPage';
 import LoginPage from './loginPage';
 import SignUpPage from './signUpPage';
@@ -16,6 +17,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={StatPage} />
+            <Route exact path="/allcountries" component={AllCountriesPage} />
             <Route exact path="/tracker" component={TrackerPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />

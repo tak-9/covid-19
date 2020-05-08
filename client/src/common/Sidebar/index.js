@@ -27,6 +27,11 @@ function Sidebar(props) {
                     icon = {<i className="fas fa-fw fa-tachometer-alt" />}
                     text = {<span>Dashboard</span>}/>
 
+            <Item   className = {props.currentPage === "allcountries" ? "active" : "" }
+                    href = {"/allcountries"} 
+                    icon = {<i className="fas fa-fw fa-table" />}
+                    text = {<span>Worldwide</span>}/>
+
             {/* Nav Item - Charts */}
             {/* <Item   
                     href = {"/"} 
