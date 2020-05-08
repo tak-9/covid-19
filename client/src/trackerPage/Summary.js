@@ -51,8 +51,19 @@ function Summary(props) {
                 Percentage of staying at home:
                 <h2 className="ml-5 mt-3">{percentageAtHome}%</h2>
                 Status:
-                {atHomeStatusJsx}
-                (0-14hours: Good, 14-21hours: Bad, 21+ hours: Poor)
+                <div className="row">
+                    <div className="col-sm-12 col-md-12 col-lg-4">
+                    {atHomeStatusJsx}
+                    </div>
+                    <div className="col-sm-12 col-md-12 col-lg-8">
+                    <ul className="small">
+                        <li>0-14hours: Good</li>
+                        <li>14-21hours: Bad</li>
+                        <li>21+ hours: Poor</li>
+                    </ul>
+                    </div>
+
+                </div>
             </div>
         </div>
     )

@@ -8,11 +8,11 @@ function TrackerContent() {
         <div className="container-fluid">
             {console.log("TrackerContent()")}
             <div className="row">
-                <div className="col-xl-7 col-lg-7 col-md-5 col-sm-4">
+                <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12">
                     <Summary />
                     <Feed/>
                 </div>
-                <div className="col-xl-4 col-lg-5 col-md-7 col-sm-8">
+                <div className="col-xl-4 col-lg-5 col-md-12 col-sm-12">
                     <DataEntry />
                 </div>
             </div>
