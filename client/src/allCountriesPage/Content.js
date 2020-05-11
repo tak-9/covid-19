@@ -1,10 +1,12 @@
 import React from 'react';
 import AllCountries from './allCountries';
 import WashHand from './WashHand'
+import Overview from './Overview';
 
 function Content() {
   return (
     <div className="container-fluid">
+        <Overview />
         <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-7 col-md-9">
                 <AllCountries/>
@@ -13,7 +15,7 @@ function Content() {
                 <WashHand />
             </div>
         </div>
-        </div>
+    </div>
   );
 }
 export default Content;
