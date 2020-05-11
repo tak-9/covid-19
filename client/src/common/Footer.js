@@ -20,7 +20,7 @@ function Footer() {
         <footer className="sticky-footer bg-white">
             <div className="mr-5">
                 <div className="text-right my-auto">
-                    <small className="mr-1">Website developed by Copyright Takuji Okubo</small>
+                    <small className="mr-1">Website developed by Takuji Okubo</small>
                     <a href="https://github.com/tak-9/covid-19" target="_blank" rel="noopener noreferrer"><i className="fab fa-github text-dark"></i></a>
                     <br className="d-sm-none" />
                     <small className="ml-3">Share this site on</small> 
