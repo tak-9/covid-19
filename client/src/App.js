@@ -1,5 +1,5 @@
 import React from 'react';
-import StatPage from './statPage';
+import DashboardPage from './dashboardPage';
 import AllCountriesPage from './allCountriesPage';
 import TrackerPage from './trackerPage';
 import LoginPage from './loginPage';
@@ -16,7 +16,7 @@ function App() {
       <TrackerContextProvider>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={StatPage} />
+            <Route exact path="/" component={DashboardPage} />
             <Route exact path="/allcountries" component={AllCountriesPage} />
             <Route exact path="/tracker" component={TrackerPage} />
             <Route exact path="/login" component={LoginPage} />

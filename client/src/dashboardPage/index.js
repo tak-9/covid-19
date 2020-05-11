@@ -5,7 +5,7 @@ import useScript from '../customhook/useScript';
 import ContentWrapper from '../common/ContentWrapper';
 import Topbar from '../common/Topbar';
 
-function StatPage() {
+function DashboardPage() {
   useScript("js/sb-admin-2.js");
   return (
     <div id="wrapper">
@@ -17,4 +17,4 @@ function StatPage() {
     </div>
   );
 }
-export default StatPage;
+export default DashboardPage;
