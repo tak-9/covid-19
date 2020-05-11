@@ -8,4 +8,14 @@ var chartColors = {
     grey: 'rgb(201, 203, 207)'
 };
 
+export var chartColorsInHex = {
+    red: '#FF6384',
+    orange: '#FF9F40',
+    yellow: '#FFCD56',
+    green: '#4BC0C0',
+    blue: '#36A2EB',
+    purple: '#36A2EB',
+    grey: '#C9CBCF'
+}
+
 export default chartColors;

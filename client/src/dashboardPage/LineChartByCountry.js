@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
-import chartColors from './chartUtil';
+import chartColors, { chartColorsInHex } from './chartUtil';
 
 class LineChartByCountry extends Component {
     chartRef = React.createRef();
@@ -160,16 +160,16 @@ class LineChartByCountry extends Component {
 
                     {/* Legend */}
                     <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-warning"></i> Confirmed
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Recovered
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-danger"></i> Deaths
-                    </span>
-                  </div>
+                        <span class="mr-2">
+                        <i class="fas fa-circle" style={{"color": chartColorsInHex.yellow}}></i> Confirmed
+                        </span>
+                        <span class="mr-2">
+                        <i class="fas fa-circle" style={{"color": chartColorsInHex.blue}}></i> Recovered
+                        </span>
+                        <span class="mr-2">
+                        <i class="fas fa-circle" style={{"color": chartColorsInHex.red}}></i> Deaths
+                        </span>
+                    </div>
 
                 </div>
             </div>        
