@@ -7,7 +7,13 @@
 .sidebar {
     background-color: #3d486c;
 }
- 
+
+.chart-container {
+    width: 1000px;
+    height:600px
+}
+
+
 /* Add a hover effect if you want */
 .fab:hover {
     opacity: 0.7;

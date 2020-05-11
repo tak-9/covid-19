@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
+import chartColors from './chartUtil';
 
 class LineChartByCountry extends Component {
     chartRef = React.createRef();
@@ -26,11 +27,15 @@ class LineChartByCountry extends Component {
 
     createChart(input){
         console.log("createChart()", input);
-
+ 
         var confirmedNumbers = [];
+        var deathsNumbers = [];
+        var recoveredNumbers = [];
         var dates = [];
         for (let i=0; i<input.length ;i++){
             confirmedNumbers.unshift(input[i].confirmed);
+            deathsNumbers.unshift(input[i].deaths);
+            recoveredNumbers.unshift(input[i].recovered);
             dates.unshift(input[i].date);
         }
         console.log(dates);
@@ -40,7 +45,20 @@ class LineChartByCountry extends Component {
             data: {
               labels: dates,
               datasets: [{
-                label: "Label",
+                label: "Confirmed",
+                lineTension: 0.1,
+                backgroundColor: "rgba(78, 115, 223, 0.05)",
+                borderColor: chartColors.yellow,
+                pointRadius: 2,
+                pointHoverRadius: 3,
+                pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                pointHitRadius: 10,
+                pointBorderWidth: 2,
+                data: confirmedNumbers,
+              },
+              {
+                label: "Recovered",
                 lineTension: 0.1,
                 backgroundColor: "rgba(78, 115, 223, 0.05)",
                 borderColor: "rgba(78, 115, 223, 1)",
@@ -52,8 +70,20 @@ class LineChartByCountry extends Component {
                 pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                 pointHitRadius: 10,
                 pointBorderWidth: 2,
-                data: confirmedNumbers,
-              }],
+                data: recoveredNumbers,
+              } ,
+              {
+                label: "Deaths",
+                lineTension: 0.1,
+                borderColor: chartColors.red,
+                pointRadius: 2,
+                pointHoverRadius: 3,
+                pointHitRadius: 10,
+                pointBorderWidth: 2,
+                data: deathsNumbers,
+              }
+            
+            ],
             },
             options: {
               maintainAspectRatio: false,
@@ -93,7 +123,7 @@ class LineChartByCountry extends Component {
                 }],
               },
               legend: {
-                display: false
+                display: false,
               },
               tooltips: {
                 backgroundColor: "rgb(255,255,255)",
@@ -119,14 +149,28 @@ class LineChartByCountry extends Component {
             <div className="card shadow mb-4">
                 {/* Card Header - Dropdown */}
                 <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 className="m-0 font-weight-bold text-primary">Confired Cases in Australia</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Number of Cases in Australia</h6>
                     {/*-- Dropdown menu has been removed from here -- */}
                 </div>
                 {/* Card Body */}
                 <div className="card-body">
                     <div className="chart-area">
-                    <canvas id="myAreaChart"  ref={this.chartRef} />
+                    <canvas id="myAreaChart" ref={this.chartRef} />
                     </div>
+
+                    {/* Legend */}
+                    <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-warning"></i> Confirmed
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Recovered
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-danger"></i> Deaths
+                    </span>
+                  </div>
+
                 </div>
             </div>        
         )
