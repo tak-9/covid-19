@@ -1,6 +1,9 @@
 # Covid-19 Dashboard and Stay Home Tracker 
 
-Since the outbreak of corona virus, we have been doing the hard work to "Flatten the curve". I feel that it is necessary to visualize the confirmed cases so that we can see it easily. This dashboard shows the Australian confirmed cases in visual graphs using chart.js and react. At the same time, we need to be motivated to stay at home to prevent further spread of the virus. I have created the Stay Home Tracker in order to keep track of hours spent outside home.  
+Since the outbreak of the coronavirus, we have been told to stay home to "flatten the curve". The aim of my app is to present the statistics in a graph format. This dashboard shows the number of cases in Australia state by state. 
+
+In addition, I have created the Stay Home Tracker to motivate people to stay home. It records the number of hours spent outside of home. 
+
 
 ## Live demo :earth_asia:
 This application has been deployed to Heroku. 
