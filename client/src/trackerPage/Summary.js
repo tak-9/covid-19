@@ -11,7 +11,7 @@ function Summary(props) {
     let trackerCtx = useContext(TrackerContext);
     let { triggerUpdate } = trackerCtx;
 
-    let [ outsideHours, setOutsideHours ] = useState(-1);
+    let [ outsideHours, setOutsideHours ] = useState(0);
 
     useEffect(() => {
         const today = new Date();
