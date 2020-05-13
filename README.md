@@ -21,7 +21,7 @@ Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Passwo
 <img src="./README/stayhometracker.png" width=700px>
 
 ## Technologies  	
-* [React](https://reactjs.org/) (Hooks, Context API), [Bootstrap](https://getbootstrap.com/), [chart.js](https://www.chartjs.org/), [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2), [react-day-picker](http://react-day-picker.js.org/), LocalStorage
+* [React](https://reactjs.org/) (Hooks, Context API), [Bootstrap](https://getbootstrap.com/), [chart.js](https://www.chartjs.org/), [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2), [react-day-picker](http://react-day-picker.js.org/), [react-table](https://github.com/tannerlinsley/react-table), LocalStorage
 * [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/), [mongoose.js](https://mongoosejs.com/), [Passport](http://www.passportjs.org/), [axios](https://www.npmjs.com/package/axios), [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Credit 
