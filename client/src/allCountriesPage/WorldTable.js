@@ -61,11 +61,11 @@ const ReactTable = ({ columns, data }) => {
     <p/>
     <table className="table table-striped" {...getTableProps()}>
       <thead>
-        {console.log("headerGroups", headerGroups)}
+        {/* console.log("headerGroups", headerGroups) */}
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => {
-              console.log("column", column);
+              //console.log("column", column);
               const {render, getHeaderProps} = column
               return (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>

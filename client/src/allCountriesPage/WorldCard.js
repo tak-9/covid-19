@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import * as util from './util';
 import ReactTable from './WorldTable';
-// import { useMemo } from "react-table";
 
 function WorldCard() {
 
@@ -10,7 +9,7 @@ function WorldCard() {
 
     useEffect(
         () => {
-            console.log("useEffect is called.");
+            //console.log("useEffect is called.");
             const covid19Url = "https://corona-api.com/countries";
             axios.get(covid19Url)
             .then(res => {
@@ -45,7 +44,7 @@ function WorldCard() {
                     accessor: "name"
                 }, 
                 {
-                    Header: "Confirmed",
+                    Header: "Total Confirmed",
                     accessor: "confirmed"
                 },
                 {
