@@ -27,7 +27,7 @@ function Footer() {
                     <br className="d-sm-none" />
                     <span className="ml-2" style={{cursor: "pointer"}} onClick={openFacebookWindow}><i className="fab fa-facebook-f"></i></span>
                     <span className="ml-2" style={{cursor: "pointer"}} onClick={openTwitterWindow}><i className="fab fa-twitter"></i></span>
-                    <span className="ml-2" style={{cursor: "pointer"}} onClick={openLinkedInWindow}><i class="fab fa-linkedin"></i></span>
+                    <span className="ml-2" style={{cursor: "pointer"}} onClick={openLinkedInWindow}><i className="fab fa-linkedin"></i></span>
                 </div>
             </div>
         </footer>

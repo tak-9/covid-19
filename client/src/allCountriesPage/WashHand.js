@@ -10,7 +10,7 @@ function WashHand() {
             <div className="card-body">
             <h4 className="font-weight-bold">Clean Hands Protect Against Infection</h4>
 
-            <img class="mt-2 mb-4" src={doctorImg} width="75%" />
+            <img className="mt-2 mb-4" src={doctorImg} width="75%" alt="Doctor"/>
 
             <h5 className="font-weight-bold">Protect yourself</h5>
             <ul>

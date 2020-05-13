@@ -47,7 +47,7 @@ class PieChart extends Component {
         const myChartRef = this.chartRef.current.getContext("2d");
         var confirmedCases = [];
         var states = [];
-        var labels = [];
+        //var labels = [];
         for (let i=0; i<input.length; i++){
             confirmedCases.push(input[i].cases);
             states.push(input[i].state);
@@ -67,8 +67,6 @@ class PieChart extends Component {
               labels: states,
               datasets: [{
                 data: confirmedCases,
-                //backgroundColor: ["#4262be","#377acf","#3490dc","#3fa6e7","#55bcf0","#70d1f7","#8ee5ff"], 
-                //backgroundColor: ["#d1a535","#d8ae4e","#dfb865","#e6c27b","#ebcc91","#f0d6a7","#f5e0bd"],
                 backgroundColor: [
                     chartColors.red,
                     chartColors.blue,
