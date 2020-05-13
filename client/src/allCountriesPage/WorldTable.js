@@ -43,19 +43,19 @@ const ReactTable = ({ columns, data }) => {
     usePagination,
   );
 
-
+    
   return (
     <>
-    <div class="input-group mb-4" style={{ width: '300px' }}>
+    <div className="input-group mb-4" style={{ width: '300px' }}>
         <input
             value={filterInput}
             onChange={handleFilterChange}
             placeholder={"Search Country..."}
             className="form-control bg-light"
         />
-        <div class="input-group-append">
-            <div class="btn btn-primary">
-                <i class="fas fa-search fa-sm"></i>
+        <div className="input-group-append">
+            <div className="btn btn-primary">
+                <i className="fas fa-search fa-sm"></i>
             </div>
         </div>
     </div>
@@ -71,7 +71,12 @@ const ReactTable = ({ columns, data }) => {
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                 {column.render('Header')}
                 {/* Add a sort arrow icon */}
-                &nbsp;<i class="fas fa-sort"></i>
+                &nbsp;
+                {column.isSorted ?
+                    column.isSortedDesc ? 
+                          <i className="fas fa-sort-amount-up"></i>
+                        : <i className="fas fa-sort-amount-down-alt"></i>
+                    : <i className="fas fa-sort"></i>}
               </th>
               )
             })}

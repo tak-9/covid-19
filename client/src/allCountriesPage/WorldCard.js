@@ -38,23 +38,23 @@ function WorldCard() {
     const columns = React.useMemo(
         () => [
                 {
-                    Header: "Ranking",
-                    accessor: "ranking"
+                    Header: (<span>Confirmed<br/>Ranking</span>),
+                    accessor: "ranking", 
                 }, 
                 {
                     Header: "Country",
                     accessor: "name"
                 }, 
                 {
-                    Header: "Confirmed",
+                    Header: (<span>Total<br/>Confirmed</span>),
                     accessor: "confirmed"
                 },
                 {
-                    Header: "Death",
+                    Header: (<span>Total<br/>Death</span>),
                     accessor: "deaths"
                 },
                 {
-                    Header: "Recovered",
+                    Header: (<span>Total<br/>Recovered</span>),
                     accessor: "recovered"
                 },
                 // {
