@@ -34,7 +34,37 @@ function WorldCard() {
         }
     ,[]);
 
-    
+    const columns = React.useMemo(
+        () => [
+                {
+                    Header: "Ranking",
+                    accessor: "ranking", 
+                }, 
+                {
+                    Header: "Country",
+                    accessor: "name"
+                }, 
+                {
+                    Header: "Confirmed",
+                    accessor: "confirmed"
+                },
+                {
+                    Header: "Total Death",
+                    accessor: "deaths"
+                },
+                {
+                    Header: "Total Recovered",
+                    accessor: "recovered"
+                },
+                // {
+                //     Header: "New Cases",
+                //     accessor: "today_confirmed"
+                // }
+        ],
+        []
+    )
+ 
+    /*
     const columns = React.useMemo(
         () => [
                 {
@@ -64,6 +94,7 @@ function WorldCard() {
         ],
         []
     )
+    */
  
     return (
         <div className="card shadow mb-4">
