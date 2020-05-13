@@ -5,7 +5,7 @@ import { useTable, useSortBy, usePagination, useFilters } from "react-table";
  * As in the previous versions, a react-table has data that consist of an array of JSONs
  */
 const ReactTable = ({ columns, data }) => {
-    console.log("columns in ReactTable",columns);
+    //console.log("columns in ReactTable",columns);
     const [filterInput, setFilterInput] = useState("");
 
     const handleFilterChange = e => {
@@ -61,9 +61,11 @@ const ReactTable = ({ columns, data }) => {
     <p/>
     <table className="table table-striped" {...getTableProps()}>
       <thead>
+        {console.log("headerGroups", headerGroups)}
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => {
+              console.log("column", column);
               const {render, getHeaderProps} = column
               return (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
