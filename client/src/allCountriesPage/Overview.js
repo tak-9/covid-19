@@ -20,7 +20,7 @@ function Overview() {
                         deaths: res.data.data[0].deaths.toLocaleString(),
                         confirmed: res.data.data[0].confirmed.toLocaleString(),
                         recovered: res.data.data[0].recovered.toLocaleString(),
-                        updated_at: new Date(res.data.data[0].updated_at).toLocaleString()
+                        updated_at: new Date(res.data.data[0].updated_at).toLocaleString('en-AU')
                     })
                 })
             }

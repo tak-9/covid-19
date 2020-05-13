@@ -32,14 +32,14 @@ function Overview() {
                     confirmed: res.data.data.latest_data.confirmed.toLocaleString(),
                     recovered: res.data.data.latest_data.recovered.toLocaleString(),
                     critical: res.data.data.latest_data.critical.toLocaleString(),
-                    updated_at: new Date(res.data.data.updated_at).toLocaleString()
+                    updated_at: new Date(res.data.data.updated_at).toLocaleString('en-AU')
                 });
                 setAusLatest({
-                    new_confirmed: res.data.data.timeline[0].new_confirmed.toLocaleString(),
-                    new_recovered: res.data.data.timeline[0].new_recovered.toLocaleString(),
-                    new_deaths: res.data.data.timeline[0].new_deaths.toLocaleString(),
-                    updated_at_current: new Date(res.data.data.timeline[0].updated_at).toLocaleString(),
-                    updated_at_previous: new Date(res.data.data.timeline[1].updated_at).toLocaleString()
+                    new_confirmed: res.data.data.timeline[0].new_confirmed.toLocaleString('en-AU'),
+                    new_recovered: res.data.data.timeline[0].new_recovered.toLocaleString('en-AU'),
+                    new_deaths: res.data.data.timeline[0].new_deaths.toLocaleString('en-AU'),
+                    updated_at_current: new Date(res.data.data.timeline[0].updated_at).toLocaleString('en-AU'),
+                    updated_at_previous: new Date(res.data.data.timeline[1].updated_at).toLocaleString('en-AU')
                 });
             });
             
