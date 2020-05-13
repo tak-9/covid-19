@@ -6,7 +6,7 @@ import ReactTable from './WorldTable';
 
 function WorldCard() {
 
-    var [allCountries, setAllCountries] = useState();
+    const [allCountries, setAllCountries] = useState();
 
     useEffect(
         () => {
@@ -66,7 +66,7 @@ function WorldCard() {
                 <h6 className="m-0 font-weight-bold text-primary">Worldwide Cases</h6>
             </div>
             <div className="card-body">
-                {(typeof allCountries!=='undefined') ? <ReactTable columns={columns} data={allCountries} defaultPageSize="20" /> : <span>Loading...</span>}                
+                {(typeof allCountries!=='undefined') ? <ReactTable columns={columns} data={allCountries} /> : <span>Loading...</span>}                
             </div>
         </div>
 

@@ -1,16 +1,24 @@
-import React from "react";
-import { useTable, useSortBy, usePagination } from "react-table";
+import React, {useState} from "react";
+import { useTable, useSortBy, usePagination, useFilters } from "react-table";
 /**
  * As in the previous versions, a react-table accepts colums where at the core we have a field Header, and accessor
  * As in the previous versions, a react-table has data that consist of an array of JSONs
  */
 const ReactTable = ({ columns, data }) => {
+
+    const [filterInput, setFilterInput] = useState("");
+
+    const handleFilterChange = e => {
+        const value = e.target.value || undefined;
+        setFilter("name", value);
+        setFilterInput(value);
+      };
+
   // you can get the react table functions by using the hook useTable
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    //rows,
     page, // Instead of using 'rows', we'll use page,
     // which has only the rows for the active page
 
@@ -25,17 +33,26 @@ const ReactTable = ({ columns, data }) => {
     setPageSize,
     state: { pageIndex, pageSize },
     prepareRow,
+    setFilter
   } = useTable({
     columns,
     data
 }, 
+    useFilters,
     useSortBy,
-    usePagination
+    usePagination,
   );
 
 
   return (
-      <>
+    <>
+
+    <input
+        value={filterInput}
+        onChange={handleFilterChange}
+        placeholder={"Search Country"}
+    />
+    <p/>
     <table className="table table-striped" {...getTableProps()}>
       <thead>
         {headerGroups.map(headerGroup => (
@@ -69,53 +86,52 @@ const ReactTable = ({ columns, data }) => {
     </table>
 
     <div className="pagination">
-    <button className="btn btn-info mr-1" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-    {'<<'}
-    </button> 
-    <button className="btn btn-info mr-1" onClick={() => previousPage()} disabled={!canPreviousPage}>
-    {'<'}
-    </button>
-    <button className="btn btn-info mr-1" onClick={() => nextPage()} disabled={!canNextPage}>
-    {'>'}
-    </button>
-    <button className="btn btn-info mr-1" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-    {'>>'}
-    </button>
+        <button className="btn btn-info mr-1" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+            {'<<'}
+        </button> 
+        <button className="btn btn-info mr-1" onClick={() => previousPage()} disabled={!canPreviousPage}>
+            {'<'}
+        </button>
+        <button className="btn btn-info mr-1" onClick={() => nextPage()} disabled={!canNextPage}>
+            {'>'}
+        </button>
+        <button className="btn btn-info mr-1" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+            {'>>'}
+        </button>
 
-    &nbsp;&nbsp;Page&nbsp;
-    <span className="font-weight-bold">
-        {pageIndex + 1} of {pageOptions.length}
-    </span>&nbsp;
-    | Go to page: &nbsp;
-    <input
-        type="number"
-        defaultValue={pageIndex + 1}
+        &nbsp;&nbsp;Page&nbsp;
+        <span className="font-weight-bold">
+            {pageIndex + 1} of {pageOptions.length}
+        </span>&nbsp;
+        | Go to page: &nbsp;
+        <input
+            type="number"
+            defaultValue={pageIndex + 1}
+            onChange={e => {
+            const page = e.target.value ? Number(e.target.value) - 1 : 0
+            gotoPage(page)
+            }}
+            className="form-control mr-1"
+            style={{ width: '100px' }}
+        />
+
+        {/* <select
+        className="form-control"
+        style={{ width: '110px' }}
+        value={pageSize}
         onChange={e => {
-        const page = e.target.value ? Number(e.target.value) - 1 : 0
-        gotoPage(page)
+            setPageSize(Number(e.target.value))
         }}
-        className="form-control mr-1"
-        style={{ width: '100px' }}
-    />
-
-    {/* <select
-    className="form-control"
-    style={{ width: '110px' }}
-    value={pageSize}
-    onChange={e => {
-        setPageSize(Number(e.target.value))
-    }}
-    >
-    {[10, 20, 30, 40, 50].map(pageSize => (
-        <option 
-        key={pageSize} value={pageSize}>
-        Show {pageSize}
-        </option>
-    ))}
-    </select> */}
+        >
+        {[10, 20, 30, 40, 50].map(pageSize => (
+            <option 
+            key={pageSize} value={pageSize}>
+            Show {pageSize}
+            </option>
+        ))}
+        </select> */}
     </div>
     </>
-
 
   );
 };
