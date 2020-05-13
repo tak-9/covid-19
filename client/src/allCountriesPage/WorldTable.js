@@ -5,7 +5,7 @@ import { useTable, useSortBy, usePagination, useFilters } from "react-table";
  * As in the previous versions, a react-table has data that consist of an array of JSONs
  */
 const ReactTable = ({ columns, data }) => {
-
+    console.log("columns in ReactTable",columns);
     const [filterInput, setFilterInput] = useState("");
 
     const handleFilterChange = e => {
@@ -14,35 +14,34 @@ const ReactTable = ({ columns, data }) => {
         setFilterInput(value);
       };
 
-  // you can get the react table functions by using the hook useTable
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    page, // Instead of using 'rows', we'll use page,
-    // which has only the rows for the active page
+    // you can get the react table functions by using the hook useTable
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        page, // Instead of using 'rows', we'll use page,
+        // which has only the rows for the active page
 
-    // The rest of these things are super handy, too ;)
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
-    nextPage,
-    previousPage,
-    setPageSize,
-    state: { pageIndex, pageSize },
-    prepareRow,
-    setFilter
-  } = useTable({
-    columns,
-    data
-}, 
-    useFilters,
-    useSortBy,
-    usePagination,
-  );
-
+        // The rest of these things are super handy, too ;)
+        canPreviousPage,
+        canNextPage,
+        pageOptions,
+        pageCount,
+        gotoPage,
+        nextPage,
+        previousPage,
+        setPageSize,
+        state: { pageIndex, pageSize },
+        prepareRow,
+        setFilter
+    } = useTable({
+        columns,
+        data
+    }, 
+        useFilters,
+        useSortBy,
+        usePagination,
+    );
     
   return (
     <>
@@ -67,7 +66,6 @@ const ReactTable = ({ columns, data }) => {
             {headerGroup.headers.map(column => {
               const {render, getHeaderProps} = column
               return (
-                // <th {...getHeaderProps()}>{render("Header")}</th>
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                 {column.render('Header')}
                 {/* Add a sort arrow icon */}
