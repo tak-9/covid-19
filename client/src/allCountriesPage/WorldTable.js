@@ -46,12 +46,19 @@ const ReactTable = ({ columns, data }) => {
 
   return (
     <>
-
-    <input
-        value={filterInput}
-        onChange={handleFilterChange}
-        placeholder={"Search Country"}
-    />
+    <div class="input-group mb-4" style={{ width: '300px' }}>
+        <input
+            value={filterInput}
+            onChange={handleFilterChange}
+            placeholder={"Search Country..."}
+            className="form-control bg-light"
+        />
+        <div class="input-group-append">
+            <div class="btn btn-primary">
+                <i class="fas fa-search fa-sm"></i>
+            </div>
+        </div>
+    </div>
     <p/>
     <table className="table table-striped" {...getTableProps()}>
       <thead>
@@ -99,11 +106,14 @@ const ReactTable = ({ columns, data }) => {
             {'>>'}
         </button>
 
-        &nbsp;&nbsp;Page&nbsp;
-        <span className="font-weight-bold">
-            {pageIndex + 1} of {pageOptions.length}
-        </span>&nbsp;
-        | Go to page: &nbsp;
+        <div className="pt-1">
+            &nbsp;&nbsp;Page&nbsp;
+            <span className="font-weight-bold">
+                {pageIndex + 1} of {pageOptions.length}
+            </span>&nbsp;
+            | Go to page: &nbsp;
+        </div>
+
         <input
             type="number"
             defaultValue={pageIndex + 1}

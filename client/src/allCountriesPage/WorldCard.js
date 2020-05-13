@@ -20,6 +20,7 @@ function WorldCard() {
                 var sorted=[];
                 for (var i=0; i<sortedCountryData.length; i++){
                     var countriesJSON =  {
+                        ranking: parseInt([i])+1,
                         name: sortedCountryData[i].name,
                         confirmed: sortedCountryData[i].latest_data.confirmed,
                         deaths: sortedCountryData[i].latest_data.deaths,
@@ -37,19 +38,23 @@ function WorldCard() {
     const columns = React.useMemo(
         () => [
                 {
+                    Header: "Ranking",
+                    accessor: "ranking"
+                }, 
+                {
                     Header: "Country",
                     accessor: "name"
                 }, 
                 {
-                    Header: "Total Confirmed",
+                    Header: "Confirmed",
                     accessor: "confirmed"
                 },
                 {
-                    Header: "Total Death",
+                    Header: "Death",
                     accessor: "deaths"
                 },
                 {
-                    Header: "Total Recovered",
+                    Header: "Recovered",
                     accessor: "recovered"
                 },
                 // {
