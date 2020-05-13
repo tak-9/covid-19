@@ -102,7 +102,9 @@ function WorldCard() {
                 <h6 className="m-0 font-weight-bold text-primary">Worldwide Cases</h6>
             </div>
             <div className="card-body">
-                {(typeof allCountries!=='undefined') ? <ReactTable columns={columns} data={allCountries} /> : <span>Loading...</span>}                
+                {console.log("columns", columns)}
+                {((typeof allCountries!=='undefined') && (typeof columns!=='undefined')) ? 
+                    <ReactTable columns={columns} data={allCountries} /> : <span>Loading...</span>}                
             </div>
         </div>
 
