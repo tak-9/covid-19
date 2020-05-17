@@ -13,6 +13,7 @@ function DashboardPage() {
   useEffect(()=>{
         // Wakeup Heroku when accessed from Netlify
         if (process.env.NODE_ENV === "netlify") {
+            console.log("Accessing https://covid19-au.herokuapp.com/img/login.jpg This is only for netlify");
             axios.get("https://covid19-au.herokuapp.com/img/login.jpg");
         }
     }
