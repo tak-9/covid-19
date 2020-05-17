@@ -26,7 +26,7 @@ app.use(express.json());
 // )
 // app.use(bodyParser.json())
 
-var whitelist = ['http://localhost:3000', 'https://covid19-au.netlify.app/']
+var whitelist = ['http://localhost:3000', 'https://covid19-au.netlify.app/', 'https://covid19-au.herokuapp.com/']
 var corsOptions = {
     origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -37,7 +37,7 @@ var corsOptions = {
   }
 }
  
-app.use(corsOptions);
+app.use(cors(corsOptions));
 
 // app.use(
 //   cors({
