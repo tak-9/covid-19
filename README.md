@@ -29,7 +29,7 @@ Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Passwo
 * [React](https://reactjs.org/) (Hooks, Context API), [Bootstrap](https://getbootstrap.com/), [chart.js](https://www.chartjs.org/), [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2), [react-day-picker](http://react-day-picker.js.org/), [react-table](https://github.com/tannerlinsley/react-table), LocalStorage
 * [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/), [mongoose.js](https://mongoosejs.com/), [Passport](http://www.passportjs.org/), [axios](https://www.npmjs.com/package/axios), [bcrypt](https://www.npmjs.com/package/bcrypt)
 
-## Deployment to Netlify  [![Netlify Status](https://api.netlify.com/api/v1/badges/15b14572-1d2c-46a4-b2c8-45c2458b25c6/deploy-status)](https://app.netlify.com/sites/covid19-au/deploys)
+## Deployment to Netlify  
 As heroku server may get very slow on 'free' plan, I have deployed React front-end to [Netlify](https://www.netlify.com/). The back-end API and MongoDB are hosted on heroku. 
 
 ## Credit 
