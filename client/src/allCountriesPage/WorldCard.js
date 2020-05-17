@@ -63,38 +63,6 @@ function WorldCard() {
         []
     )
  
-    /*
-    const columns = React.useMemo(
-        () => [
-                {
-                    Header: (<span>Confirmed<br/>Ranking</span>),
-                    accessor: "ranking", 
-                }, 
-                {
-                    Header: "Country",
-                    accessor: "name"
-                }, 
-                {
-                    Header: (<span>Total<br/>Confirmed</span>),
-                    accessor: "confirmed"
-                },
-                {
-                    Header: (<span>Total<br/>Death</span>),
-                    accessor: "deaths"
-                },
-                {
-                    Header: (<span>Total<br/>Recovered</span>),
-                    accessor: "recovered"
-                },
-                // {
-                //     Header: "New Cases",
-                //     accessor: "today_confirmed"
-                // }
-        ],
-        []
-    )
-    */
- 
     return (
         <div className="card shadow mb-4">
             <div className="card-header py-3">

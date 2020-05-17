@@ -45,21 +45,25 @@ const ReactTable = ({ columns, data }) => {
     
   return (
     <>
-    <div className="input-group mb-4" style={{ width: '300px' }}>
-        <input
-            value={filterInput}
-            onChange={handleFilterChange}
-            placeholder={"Search Country..."}
-            className="form-control bg-light"
-        />
-        <div className="input-group-append">
-            <div className="btn btn-primary">
-                <i className="fas fa-search fa-sm"></i>
+    <div className="row">
+        <div className="col-xl-5 col-lg-5 col-md-8 col-sm-10 col-xs-12">
+            <div className="input-group mb-4">
+                <input
+                    value={filterInput}
+                    onChange={handleFilterChange}
+                    placeholder={"Search Country..."}
+                    className="form-control bg-light"
+                />
+                <div className="input-group-append">
+                    <div className="btn btn-primary">
+                        <i className="fas fa-search fa-sm"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <p/>
-    <table className="table table-striped" {...getTableProps()}>
+    <table className="table table-striped table-responsive-md" {...getTableProps()}>
       <thead>
         {/* console.log("headerGroups", headerGroups) */}
         {headerGroups.map(headerGroup => (
@@ -97,7 +101,7 @@ const ReactTable = ({ columns, data }) => {
       </tbody>
     </table>
 
-    <div className="pagination">
+    <div className="pagination" style={{'flex-wrap' : 'wrap'}}>
         <button className="btn btn-info mr-1" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
             {'<<'}
         </button> 
@@ -110,7 +114,6 @@ const ReactTable = ({ columns, data }) => {
         <button className="btn btn-info mr-1" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
             {'>>'}
         </button>
-
         <div className="pt-1">
             &nbsp;&nbsp;Page&nbsp;
             <span className="font-weight-bold">

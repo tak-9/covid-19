@@ -9,11 +9,11 @@ function Content() {
     <div className="container-fluid">
         <Overview />
         <div className="row justify-content-center">
-            <div className="col-xl-7 col-lg-7 col-md-9">
+            <div className="col-xl-7 col-lg-7 col-md-12">
                 <WorldCard />
                 {/* <AllCountries/> */}
             </div>
-            <div className="col-xl-5 col-lg-5 col-md-3">
+            <div className="col-xl-5 col-lg-5 col-md-12">
                 <WashHand />
             </div>
         </div>
