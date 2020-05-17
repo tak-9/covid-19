@@ -26,18 +26,6 @@ app.use(express.json());
 // )
 // app.use(bodyParser.json())
 
-// var whitelist = ['http://localhost:3000', 'https://covid19-au.netlify.app/', 'https://covid19-au.herokuapp.com/']
-// var corsOptions = {
-//     origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
-// app.use(cors(corsOptions));
-
 app.use(
   cors({
     origin: ["http://localhost:3000", "https://covid19-au.netlify.app"],// allow to server to accept request from different origin
