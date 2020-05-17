@@ -26,13 +26,26 @@ app.use(express.json());
 // )
 // app.use(bodyParser.json())
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // allow to server to accept request from different origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true // allow session cookie from browser to pass through
-  })
-);
+var whitelist = ['http://localhost:3000', 'https://covid19-au.netlify.app/']
+var corsOptions = {
+    origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+ 
+app.use(corsOptions);
+
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000", // allow to server to accept request from different origin
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true // allow session cookie from browser to pass through
+//   })
+// );
 
 // Sessions
 app.use(
@@ -47,10 +60,6 @@ app.use(
 // Passport
 app.use(passport.initialize());
 app.use(passport.session()); // calls the deserializeUser
-
-// Passport
-// app.use(passport.initialize());
-// app.use(passport.session()); // calls the deserializeUser
 
 // Routes
 app.use('/api/user', user);
