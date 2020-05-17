@@ -10,6 +10,11 @@ This application has been deployed to Heroku.
 
 https://covid19-au.herokuapp.com/
 
+The react front-end has also been deployed to [Netlify](https://www.netlify.com/) for faster access. The same app can also be accessed from here. 
+
+https://covid19-au.netlify.app/
+
+
 ## Screen Captures
 
 Dashboard 
@@ -23,6 +28,9 @@ Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Passwo
 ## Technologies  	
 * [React](https://reactjs.org/) (Hooks, Context API), [Bootstrap](https://getbootstrap.com/), [chart.js](https://www.chartjs.org/), [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2), [react-day-picker](http://react-day-picker.js.org/), [react-table](https://github.com/tannerlinsley/react-table), LocalStorage
 * [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/), [mongoose.js](https://mongoosejs.com/), [Passport](http://www.passportjs.org/), [axios](https://www.npmjs.com/package/axios), [bcrypt](https://www.npmjs.com/package/bcrypt)
+
+## Deployment to Netlify 
+As heroku server may get very slow on 'free' plan, I have deployed React front-end to [Netlify](https://www.netlify.com/). The back-end API and MongoDB are hosted on heroku. 
 
 ## Credit 
 ### COVID-19 Data Source
