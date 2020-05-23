@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function openFacebookWindow(){ 
     window.open('https://www.facebook.com/sharer/sharer.php?u=https://covid19-au.herokuapp.com/', 
@@ -20,7 +21,7 @@ function Footer() {
         <footer className="sticky-footer bg-white">
             <div className="mr-5">
                 <div className="text-right my-auto">
-                    <small className="mr-1">Website developed by Takuji Okubo</small>
+                    <small className="mr-1">Website developed by <a href="https://tak-9.github.io/">Takuji Okubo</a></small>
                     <a href="https://github.com/tak-9/covid-19" target="_blank" rel="noopener noreferrer"><i className="fab fa-github text-dark"></i></a>
                     <br className="d-sm-none" />
                     <small className="ml-3">Share this site on</small> 
