@@ -30,7 +30,7 @@ Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Passwo
 * [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/), [mongoose.js](https://mongoosejs.com/), [Passport](http://www.passportjs.org/), [axios](https://www.npmjs.com/package/axios), [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Deployment to Netlify  
-As heroku server may get very slow on 'free' plan, I have deployed React front-end to [Netlify](https://www.netlify.com/). The back-end API and MongoDB are hosted on heroku. 
+As heroku server may get very slow on 'free' plan, I have deployed React front-end to [Netlify](https://www.netlify.com/). The same App on Netlify uses back-end API and MongoDB which are hosted on heroku. 
 
 ## Credit 
 ### COVID-19 Data Source
