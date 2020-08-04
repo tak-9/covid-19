@@ -27,7 +27,7 @@ class PieChart extends Component {
                 var statesConfirmedCases = [];
                 // foo['bar bar'] to access JSON key with space. 
                 for (let i=0; i < res.data.sheets['latest totals'].length; i++){
-                    if (res.data.sheets['latest totals'][i]['State or territory'] !== "National"){
+                    if (!res.data.sheets['latest totals'][i]['State or territory'].includes("National")){
                         statesConfirmedCases.push({ 
                             state: res.data.sheets['latest totals'][i]['State or territory'],
                             cases: res.data.sheets['latest totals'][i]['Confirmed cases (cumulative)']
