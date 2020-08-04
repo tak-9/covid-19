@@ -1,28 +1,24 @@
-import React, {createContext, Component} from 'react';
+import React, {createContext, useState} from 'react';
 
 export const LoginContext = createContext();
 
-class LoginContextProvider extends Component {
-    state = {
-        loggedIn: false,
-        username: null,
-      }
+function LoginContextProvider(props) {
 
-    setLogInState = (loggedIn, username) => {
+    const [loggedIn, setLoggedIn] = useState();
+    const [username, setUsername] = useState();
+
+    const setLogInState = (loggedInArg, usernameArg) => {
         console.log("*****setLoginState****" , loggedIn, username);
-        this.setState({
-            loggedIn: loggedIn,
-            username: username
-        });
+        setLoggedIn(loggedInArg);
+        setUsername(usernameArg);
     }
 
-    render() { 
-        return (
-            <LoginContext.Provider value={{...this.state, setLogInState: this.setLogInState}}>
-                {this.props.children}
-            </LoginContext.Provider>
-          );
-    }
+    return (
+        <LoginContext.Provider value={{loggedIn, username, setLogInState: setLogInState}}>
+            {props.children}
+        </LoginContext.Provider>
+    );
+
 }
  
 export default LoginContextProvider;
