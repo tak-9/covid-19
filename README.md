@@ -32,6 +32,14 @@ Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Passwo
 ## Deployment to Netlify  
 As heroku server may get very slow on 'free' plan, I have deployed React front-end to [Netlify](https://www.netlify.com/). The same App on Netlify uses back-end API and MongoDB which are hosted on heroku. 
 
+## Migrate from mLab to MongoDB Atlas
+[The mLab MongoDB add-on will be removed from all Heroku apps on November 10, 2020.](https://devcenter.heroku.com/changelog-items/1823)
+
+[MongoDB Atlas Sandbox](https://www.mongodb.com/cloud/atlas) is now used for alternative. 
+
+[Migration Guide](https://gist.github.com/caprosset/67328b142afd0d47b19f72df7d69e655)
+
+
 ## Credit 
 ### COVID-19 Data Source
 * [about-corona.net](https://about-corona.net/) 
