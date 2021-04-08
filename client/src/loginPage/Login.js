@@ -17,6 +17,7 @@ class Login extends Component {
             errorMessage: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleGoogleButton = this.handleGoogleButton.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleRememberMe = this.handleRememberMe.bind(this)
     }
@@ -49,6 +50,15 @@ class Login extends Component {
         });
     }
 
+    handleGoogleButton(event) {
+        // const { setLogInState } = this.context;
+        event.preventDefault();
+        console.log('handleGoogleButton');
+        // open pop-up browser window 
+        const googleAuthUrl = serverUrl + "/api/user/auth/google";
+        window.open( googleAuthUrl , "_self");
+    }
+
     handleSubmit(event) {
         const { setLogInState } = this.context;
         
@@ -69,7 +79,7 @@ class Login extends Component {
                 console.log('login response: ')
                 console.log(response)
                 if (response.status === 200) {
-                    setLogInState(true, response.data.username);
+                    setLogInState(true, response.data.username, null);
                     // update the state to redirect to /tracker
                     this.setState({
                         redirectTo: '/tracker'
@@ -148,6 +158,12 @@ class Login extends Component {
                                                 type="submit">
                                                 Login
                                             </button>
+                                            <button 
+                                                onClick={this.handleGoogleButton}
+                                                className="btn btn-google btn-user btn-block">
+                                                <i className="fab fa-google fa-fw"></i> Login with Google
+                                            </button>
+
                                         </form>
                                         <hr />
                                         <div className="text-center">

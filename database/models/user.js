@@ -13,8 +13,14 @@ const trackerSchema = new Schema({
 
 // Define userSchema
 const userSchema = new Schema({
-	username: { type: String, unique: false, required: false },
+	username: { type: String, unique: true, required: false },
 	password: { type: String, unique: false, required: false },
+    googleId: { type: String, unique: true, required: false },
+    name: { type: String, unique: false, required: false },
+    givenName: { type: String, unique: false, required: false },
+    familyName: { type: String, unique: false, required: false },
+    email: { type: String, unique: false, required: false },
+    provider:  { type: String, unique: false, required: false },
     tracker: [trackerSchema]
 })
 
@@ -35,7 +41,6 @@ userSchema.pre('save', function (next) {
 		next()
 	} else {
 		console.log('models/user.js hashPassword in pre save');
-		
 		this.password = this.hashPassword(this.password)
 		next()
 	}

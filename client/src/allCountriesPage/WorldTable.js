@@ -30,8 +30,7 @@ const ReactTable = ({ columns, data }) => {
         gotoPage,
         nextPage,
         previousPage,
-        setPageSize,
-        state: { pageIndex, pageSize },
+        state: { pageIndex },
         prepareRow,
         setFilter
     } = useTable({

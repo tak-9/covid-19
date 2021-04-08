@@ -66,7 +66,7 @@ class Signup extends Component {
 
                     // User is automatically logged in after Sign up. 
                     // Update React Context if Sign up is successful. 
-                    setLogInState(true, this.state.username);
+                    setLogInState(true, this.state.username, null);
 
                     this.setState({ //redirect to tracker page
 						redirectTo: '/tracker'

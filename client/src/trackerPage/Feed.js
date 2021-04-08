@@ -13,19 +13,22 @@ function Feed() {
     var [feedData, setFeedData] = useState(); // Data received from Axios
 
     useEffect(() => {
+        if (!username) {
+            return;
+        }
         const today = new Date();
         const todayStr = today.getDate() + "-" + (parseInt(today.getMonth())+1) + "-" + today.getFullYear();
         // /api/feed/:username/:today/:daysBefore
         const url = `${serverUrl}/api/tracker/feed/${username}/${todayStr}/7`;
         axios.get(url)
         .then((res)=>{
-            console.log("### Feed.js useEffect() axios get ", url, res);
+            // console.log("### Feed.js useEffect() axios get ", url, res);
             setFeedData(res.data[0]);
         })
         .catch((err)=>{
             console.log("### Feed.js useEffect() axios get ", err);
         });
-    },[triggerUpdate])
+    },[triggerUpdate, username])
 
     var jsx ; 
     if (typeof feedData != 'undefined') {

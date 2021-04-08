@@ -16,8 +16,7 @@ router.post('/', (req, res) => {
             res.json({
                 error: `Sorry, already a user with the username: ${username}`
             })
-        }
-        else {
+        } else {
             console.log(`Creating a new username: ${username}`);
             const newUser = new User({
                 username: username,
@@ -34,8 +33,11 @@ router.post('/', (req, res) => {
 router.post(
     '/login',
     function (req, res, next) {
-        console.log('routes/user.js, login, req.body: ');
-        console.log(req.body)
+        console.log('GET /login in routes/user.js');
+        // Logout if you are already logged in. 
+        if (req.user) {
+            req.logout();
+        }
         next()
     },
     passport.authenticate('local'),
@@ -58,13 +60,50 @@ router.get('/', (req, res, next) => {
     }
 })
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
+    console.log("get /logout", req.user)
     if (req.user) {
-        req.logout()
-        res.send({ msg: 'logging out' })
+        req.logout();
+        res.send({ msg: 'logging out' });
     } else {
-        res.send({ msg: 'no user to log out' })
+        res.send({ msg: 'no user to log out' });
     }
 })
+
+router.get('/auth/google',
+    passport.authenticate('google', { scope: ["profile", "email"] })
+)
+
+router.get('/auth/google/callback',
+    (req, res, next) => {
+        console.log('/auth/google/callback')
+        next()
+    },
+    passport.authenticate('google', { 
+        successRedirect: 'http://localhost:3000/tracker',
+        failureRedirect: 'http://localhost:3000/login' 
+    })
+);
+
+router.get('/login/success', (req, res) => {
+    console.log("GET /login/success", req.user);
+    if (req.user) {
+        console.log("User Authenticated", req.user._id);
+        User.findById(req.user._id)
+            .then((currentUser)=> {
+                console.log("currentUser", currentUser)
+                res.json(currentUser)
+            })
+            .catch((err)=> {
+                res.json("err");
+            })
+    } else {
+        console.log("User Not Authenticated")
+        res.status(400).json({
+            message: "User Not Authenticated",
+            user: null
+        })
+    }
+});
 
 module.exports = router

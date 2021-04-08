@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -9,6 +10,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const cors = require("cors");
+
 // Route requires
 const user = require('./routes/user');
 const tracker = require('./routes/tracker');
@@ -18,20 +20,12 @@ const tracker = require('./routes/tracker');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// MIDDLEWARE
-// app.use(
-// 	bodyParser.urlencoded({
-// 		extended: false
-// 	})
-// )
-// app.use(bodyParser.json())
-
 app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://covid19-au.netlify.app"],// allow to server to accept request from different origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true // allow session cookie from browser to pass through
-  })
+    cors({
+        origin: ["http://localhost:3000", "https://covid19-au.netlify.app"],// allow to server to accept request from different origin
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        credentials: true // allow session cookie from browser to pass through
+    })
 );
 
 // Sessions
@@ -53,9 +47,9 @@ app.use('/api/user', user);
 app.use('/api/tracker', tracker);
 
 // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-//}
+ if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
 
 // Send every other request to the React app
 // Define any API routes before this runs

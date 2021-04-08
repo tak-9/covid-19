@@ -116,31 +116,31 @@ class PieChart extends Component {
             </div>
             <div className="pb-4">
                 {/* Legend */}
-                <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.red}}></i> {this.state.states[0]} : {this.state.confirmedCases[0]}
+                <div className="mt-4 text-center small">
+                    <span className="mr-2">
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.red}}></i> {this.state.states[0]} : {this.state.confirmedCases[0]}
                     </span>
-                    <span class="mr-2">
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.blue}}></i> {this.state.states[1]} : {this.state.confirmedCases[1]}
+                    <span className="mr-2">
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.blue}}></i> {this.state.states[1]} : {this.state.confirmedCases[1]}
                     </span>
-                    <span class="mr-2">
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.green}}></i> {this.state.states[2]} : {this.state.confirmedCases[2]}
+                    <span className="mr-2">
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.green}}></i> {this.state.states[2]} : {this.state.confirmedCases[2]}
                     </span>
-                    <span class="mr-2">
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.orange}}></i> {this.state.states[3]} : {this.state.confirmedCases[3]}
+                    <span className="mr-2">
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.orange}}></i> {this.state.states[3]} : {this.state.confirmedCases[3]}
                     </span>
-                    <span class="mr-2">
+                    <span className="mr-2">
                     <br/>
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.purple}}></i> {this.state.states[4]} : {this.state.confirmedCases[4]}
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.purple}}></i> {this.state.states[4]} : {this.state.confirmedCases[4]}
                     </span>
-                    <span class="mr-2">
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.yellow}}></i> {this.state.states[5]} : {this.state.confirmedCases[5]}
+                    <span className="mr-2">
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.yellow}}></i> {this.state.states[5]} : {this.state.confirmedCases[5]}
                     </span>
-                    <span class="mr-2">
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.grey}}></i> {this.state.states[6]} : {this.state.confirmedCases[6]}
+                    <span className="mr-2">
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.grey}}></i> {this.state.states[6]} : {this.state.confirmedCases[6]}
                     </span>
-                    <span class="mr-2">
-                    <i class="fas fa-circle" style={{"color": chartColorsInHex.grey}}></i> {this.state.states[7]} : {this.state.confirmedCases[7]}
+                    <span className="mr-2">
+                    <i className="fas fa-circle" style={{"color": chartColorsInHex.grey}}></i> {this.state.states[7]} : {this.state.confirmedCases[7]}
                     </span>
                 </div>
 

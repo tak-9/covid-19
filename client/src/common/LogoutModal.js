@@ -9,7 +9,7 @@ function LogoutModal() {
     const[redirectUrl, setRedirectUrl] = useState('',[]);
     let redirectHandler = function(url) {
         console.log("logoutHandler"); 
-        setLogInState(false, null);
+        setLogInState(false, null, null);
         setRedirectUrl(url);
     }
     

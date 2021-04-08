@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 function openFacebookWindow(){ 
     window.open('https://www.facebook.com/sharer/sharer.php?u=https://covid19-au.herokuapp.com/', 

@@ -1,5 +1,4 @@
 import React from 'react';
-import AllCountries from './allCountries';
 import WashHand from './WashHand'
 import Overview from './Overview';
 import WorldCard from './WorldCard';

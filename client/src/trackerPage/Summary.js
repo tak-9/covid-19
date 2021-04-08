@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function Summary(props) {
     let loginCtx = useContext(LoginContext);    
-    let { username } = loginCtx;
+    let { username, fullName } = loginCtx;
 
     let trackerCtx = useContext(TrackerContext);
     let { triggerUpdate } = trackerCtx;
@@ -14,6 +14,9 @@ function Summary(props) {
     let [ outsideHours, setOutsideHours ] = useState(0);
 
     useEffect(() => {
+        if (!username) {
+            return;
+        }
         const today = new Date();
         const todayStr = today.getDate() + "-" + (parseInt(today.getMonth())+1) + "-" + today.getFullYear();
         // /api/track/hours/:username/:today/:daysBefore
@@ -28,7 +31,7 @@ function Summary(props) {
             console.log(err);
             setOutsideHours(-1);
         });
-    }, [triggerUpdate])
+    }, [triggerUpdate, username])
 
     var percentageAtHome = Math.round(100 - (( outsideHours / (24 * 7) ) * 100));
     var atHomeStatusJsx;
@@ -43,7 +46,7 @@ function Summary(props) {
     return (
         <div className="card shadow mb-4">
             <div className="card-header py-3">
-            <h6 className="m-0 font-weight-bold text-primary">Summary for {username} last 7 days</h6>
+            <h6 className="m-0 font-weight-bold text-primary">Summary for { fullName ? fullName : username} last 7 days</h6>
             </div>
             <div className="card-body">
                 Total hours spent outside home: 

@@ -3,17 +3,24 @@ import { Redirect, Link } from 'react-router-dom';
 import { LoginContext } from '../../contexts/LoginContext';
 import userIcon from '../../img/user.svg';
 import unknownUserIcon from '../../img/unknown_user.svg';
+import axios from 'axios';
+import { serverUrl } from '../../util/env';
 
 function User() {
     let loginCtx = useContext(LoginContext);
-    let { setLogInState, username } = loginCtx;
+    let { setLogInState, username, fullName } = loginCtx;
 
     const[redirectUrl, setRedirectUrl] = useState('');
 
-    let redirectHandler = function(url) {
-        console.log("logoutHandler"); 
-        setLogInState(false, null);
-        setRedirectUrl(url);
+    let logoutHandler = function(url) {
+        axios.get(`${serverUrl}/api/user/logout`, { withCredentials: true })
+            .then(result => {
+                setLogInState(false, null, null);
+                setRedirectUrl(url);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
     }
 
     let jsx;
@@ -56,7 +63,7 @@ function User() {
             <li className="nav-item dropdown no-arrow">
                 {/* Nav Item - User Information  */}
                 <Link className="nav-link dropdown-toggle" to="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 medium">{username}</span>
+                    <span className="mr-2 d-none d-lg-inline text-gray-600 medium">{ fullName ? fullName : username}</span>
                     <img className="img-profile rounded-circle" src={userIcon} alt="icon" />
                 </Link>
                 {/* Dropdown - User Information */}
@@ -66,7 +73,7 @@ function User() {
                     Profile
                     </Link>
                     <div className="dropdown-divider" /> */}
-                    <button className="dropdown-item" data-toggle="modal" data-target="#logoutModal" onClick={() => redirectHandler("/")}>
+                    <button className="dropdown-item" data-toggle="modal" data-target="#logoutModal" onClick={() => logoutHandler("/")}>
                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
                     Logout
                     </button>

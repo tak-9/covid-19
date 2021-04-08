@@ -159,15 +159,15 @@ class LineChartByCountry extends Component {
                     </div>
 
                     {/* Legend */}
-                    <div class="mt-4 text-center small">
-                        <span class="mr-2">
-                        <i class="fas fa-circle" style={{"color": chartColorsInHex.yellow}}></i> Confirmed
+                    <div className="mt-4 text-center small">
+                        <span className="mr-2">
+                        <i className="fas fa-circle" style={{"color": chartColorsInHex.yellow}}></i> Confirmed
                         </span>
-                        <span class="mr-2">
-                        <i class="fas fa-circle" style={{"color": chartColorsInHex.blue}}></i> Recovered
+                        <span className="mr-2">
+                        <i className="fas fa-circle" style={{"color": chartColorsInHex.blue}}></i> Recovered
                         </span>
-                        <span class="mr-2">
-                        <i class="fas fa-circle" style={{"color": chartColorsInHex.red}}></i> Deaths
+                        <span className="mr-2">
+                        <i className="fas fa-circle" style={{"color": chartColorsInHex.red}}></i> Deaths
                         </span>
                     </div>
 

@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../database/models/user')
-const passport = require('../passport')
 
 // Save number of hours staying at home. 
 // date is dd-mm-yyyy
@@ -86,9 +85,9 @@ router.post('/:username/:date/:hours', (req, res) => {
 // Get number of hours spent outside for past x days.
 // :today  dd-mm-yyyy
 router.get('/hours/:username/:today/:daysBefore', (req, res, next) => {
-    console.log('GET /api/tracker/hours/:username/:today/:daysBefore is called.', req.params.username, req.params.days);
     // Today is passed from web browser as server is in USA and client is Aus.
     var { username, today, daysBefore } = req.params;
+    console.log(`GET /api/tracker/hours/${username}/${today}/${daysBefore} is called.`);
 
     // Get date 
     var xDaysBefore = strToDate(today);
@@ -124,9 +123,9 @@ router.get('/hours/:username/:today/:daysBefore', (req, res, next) => {
 })
 
 router.get('/feed/:username/:today/:daysBefore', (req, res, next) => {
-    console.log('GET /api/feed/hours/:username/:today/:daysBefore is called.', req.params.username, req.params.days);
     // Today is passed from web browser as server is in USA and client is Aus.
     var { username, today, daysBefore } = req.params;
+    console.log(`GET /api/feed/hours/${username}/${today}/${daysBefore} is called.`);
 
     // Get date 
     var xDaysBefore = strToDate(today);
