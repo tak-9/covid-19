@@ -12,13 +12,11 @@ function LoginContextProvider(props) {
         console.log("*****setLoginState****" , loggedInArg, usernameArg, fullNameArg);
         setLoggedIn(loggedInArg);
         setUsername(usernameArg);
-        if (fullNameArg) {
-            setFullName(fullNameArg);
-        }
+        setFullName(fullNameArg);
     }
 
     return (
-        <LoginContext.Provider value={{loggedIn, username, setLogInState: setLogInState, fullName, setFullName,}}>
+        <LoginContext.Provider value={{loggedIn, username, fullName, setLogInState: setLogInState}}>
             {props.children}
         </LoginContext.Provider>
     );
