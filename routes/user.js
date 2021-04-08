@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../database/models/user');
 const passport = require('../passport');
+const env = require('../util/env');
+const baseUrl = env.serverUrl;
 
 router.post('/', (req, res) => {
     console.log('user signup');
@@ -80,8 +82,8 @@ router.get('/auth/google/callback',
         next()
     },
     passport.authenticate('google', { 
-        successRedirect: 'http://localhost:3000/tracker',
-        failureRedirect: 'http://localhost:3000/login' 
+        successRedirect: `${baseUrl}/tracker`,
+        failureRedirect: `${baseUrl}/login` 
     })
 );
 
