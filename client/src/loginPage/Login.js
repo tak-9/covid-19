@@ -79,7 +79,7 @@ class Login extends Component {
                 console.log('login response: ')
                 console.log(response)
                 if (response.status === 200) {
-                    setLogInState(true, response.data.username, null);
+                    setLogInState(true, response.data.username, '');
                     // update the state to redirect to /tracker
                     this.setState({
                         redirectTo: '/tracker'

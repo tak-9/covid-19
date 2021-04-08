@@ -15,7 +15,7 @@ function User() {
     let logoutHandler = function(url) {
         axios.get(`${serverUrl}/api/user/logout`, { withCredentials: true })
             .then(result => {
-                setLogInState(false, null, null);
+                setLogInState(false, '', '');
                 setRedirectUrl(url);
             })
             .catch((err)=>{
