@@ -27,7 +27,7 @@ Stay Home Tracker (Login using a demo user or sign up. Demo User: corona, Passwo
 
 ## Technologies  	
 * [React](https://reactjs.org/) (Hooks, Context API), [Bootstrap](https://getbootstrap.com/), [chart.js](https://www.chartjs.org/), [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2), [react-day-picker](http://react-day-picker.js.org/), [react-table](https://github.com/tannerlinsley/react-table), LocalStorage
-* [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/), [mongoose.js](https://mongoosejs.com/), [Passport](http://www.passportjs.org/), [axios](https://www.npmjs.com/package/axios), [bcrypt](https://www.npmjs.com/package/bcrypt)
+* [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/), [mongoose.js](https://mongoosejs.com/), [Passport](http://www.passportjs.org/), [passport-google-oauth20](https://www.npmjs.com/package/passport-google-oauth20), [axios](https://www.npmjs.com/package/axios), [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Deployment to Netlify  
 As heroku server may get very slow on 'free' plan, I have deployed React front-end to [Netlify](https://www.netlify.com/). The same App on Netlify uses back-end API and MongoDB which are hosted on heroku. 
@@ -39,6 +39,8 @@ As heroku server may get very slow on 'free' plan, I have deployed React front-e
 
 [Migration Guide](https://gist.github.com/caprosset/67328b142afd0d47b19f72df7d69e655)
 
+## New Feature 
+Added Google oAuth Login. 
 
 ## Credit 
 ### COVID-19 Data Source
