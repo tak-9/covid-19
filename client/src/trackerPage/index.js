@@ -27,7 +27,7 @@ function TrackerPage() {
             axios.get(url, { withCredentials: true })
                 .then((result)=>{
                     // console.log(`useEffect in trackerPage ${url}`, result.data);
-                    setLogInState(true, result.data.email, result.data.name);
+                    setLogInState(true, result.data.username, result.data.name);
                 })
                 .catch((error)=>{
                     // If 400, do nothing. 
