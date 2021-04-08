@@ -1,12 +1,16 @@
 const User = require('../database/models/user')
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const env = require('../util/env');
+const baseUrl = env.serverUrl;
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const CALLBACK_URL = `${baseUrl}/api/user/auth/google/callback`;
+
 const gStrategy = new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
         clientSecret: GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:3001/api/user/auth/google/callback"
+        callbackURL: CALLBACK_URL
     },
     function (accessToken, refreshToken, profile, done) {
         console.log("googleStrategy accessToken", accessToken);
