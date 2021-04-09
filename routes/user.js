@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../database/models/user');
 const passport = require('../passport');
 const env = require('../util/env');
-const baseUrl = env.serverUrl;
+const frontendUrl = env.frontendUrl;
 
 router.post('/', (req, res) => {
     console.log('user signup');
@@ -82,8 +82,8 @@ router.get('/auth/google/callback',
         next()
     },
     passport.authenticate('google', { 
-        successRedirect: `${baseUrl}/tracker`,
-        failureRedirect: `${baseUrl}/login` 
+        successRedirect: `${frontendUrl}/tracker`,
+        failureRedirect: `${frontendUrl}/login` 
     })
 );
 
