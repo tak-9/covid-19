@@ -74,7 +74,7 @@ class Login extends Component {
             .post(serverUrl + '/api/user/login', {
                 username: this.state.username,
                 password: this.state.password
-            })
+            }, { withCredentials: true })
             .then(response => {
                 console.log('login response: ')
                 console.log(response)

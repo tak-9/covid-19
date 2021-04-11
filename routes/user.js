@@ -90,15 +90,8 @@ router.get('/auth/google/callback',
 router.get('/login/success', (req, res) => {
     console.log("GET /login/success", req.user);
     if (req.user) {
-        console.log("User Authenticated", req.user._id);
-        User.findById(req.user._id)
-            .then((currentUser)=> {
-                console.log("currentUser", currentUser)
-                res.json(currentUser)
-            })
-            .catch((err)=> {
-                res.json("err");
-            })
+        console.log("User Authenticated", req.user);
+        res.json(req.user)
     } else {
         console.log("User Not Authenticated")
         res.status(400).json({
